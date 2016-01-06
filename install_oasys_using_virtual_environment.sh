@@ -137,7 +137,7 @@ cd ..
 echo "Installing Oasys..."
 git clone https://github.com/lucarebuffi/oasys1
 cd oasys1
-python setup.py install
+python setup.py develop
 cd ..
 
 echo "Installing ShadowOui"
@@ -147,7 +147,7 @@ git clone https://github.com/lucarebuffi/shadowOui
 # apply patch for Debian
 patch ./shadowOui/orangecontrib/shadow/util/shadow_objects.py < patch1.diff
 cd shadowOui
-python setup.py install
+python setup.py develop
 cd ..
 
 echo "All done. You can start Oasys+ShadowOui using ./start_oasys.sh"
