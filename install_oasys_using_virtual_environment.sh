@@ -136,16 +136,16 @@ cd ..
 #
 echo "Installing Oasys..."
 git clone https://github.com/lucarebuffi/oasys1
-# create patch for Debian
-#diff -u /scisoft/XRayOptics/OASYS-SCISOFT13/shadowOui/orangecontrib/shadow/util/shadow_objects.py /scisoft/XRayOptics/OASYS-SCISOFT12/shadowOui/orangecontrib/shadow/util/shadow_objects.py > patch1.dif
-# apply patch for Debian
-patch ./shadowOui/orangecontrib/shadow/util/shadow_objects.py < patch1.diff
 cd oasys1
 python setup.py install
 cd ..
 
 echo "Installing ShadowOui"
 git clone https://github.com/lucarebuffi/shadowOui
+# create patch for Debian
+#diff -u /scisoft/XRayOptics/OASYS-SCISOFT13/shadowOui/orangecontrib/shadow/util/shadow_objects.py /scisoft/XRayOptics/OASYS-SCISOFT12/shadowOui/orangecontrib/shadow/util/shadow_objects.py > patch1.dif
+# apply patch for Debian
+patch ./shadowOui/orangecontrib/shadow/util/shadow_objects.py < patch1.diff
 cd shadowOui
 python setup.py install
 cd ..
