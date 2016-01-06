@@ -1,0 +1,11 @@
+--- /scisoft/XRayOptics/OASYS-SCISOFT13/shadowOui/orangecontrib/shadow/util/shadow_objects.py	2016-01-06 14:10:23.624127000 +0100
++++ /scisoft/XRayOptics/OASYS-SCISOFT12/shadowOui/orangecontrib/shadow/util/shadow_objects.py	2016-01-06 14:00:02.739622000 +0100
+@@ -285,7 +285,7 @@
+     def self_repair(self):
+         if platform.system() == 'Linux':
+             distname, version, id = platform.linux_distribution()
+-            if distname == 'Ubuntu' or distname == 'CentOS Linux':
++            if distname == 'Ubuntu' or distname == 'CentOS Linux' or distname.lower() == 'debian':
+                 self.src.FILE_TRAJ   = adjust_shadow_string(self.src.FILE_TRAJ)
+                 self.src.FILE_SOURCE = adjust_shadow_string(self.src.FILE_SOURCE)
+                 self.src.FILE_BOUND  = adjust_shadow_string(self.src.FILE_BOUND)
