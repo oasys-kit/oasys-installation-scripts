@@ -121,7 +121,8 @@ cd ..
 echo "Installing Oasys dependency shadow3"
 git clone https://github.com/srio/shadow3
 cd shadow3
-python setup.py install
+python setup.py build
+python setup.py develop
 cd ..
 
 #pymca
@@ -142,10 +143,6 @@ cd ..
 
 echo "Installing ShadowOui"
 git clone https://github.com/lucarebuffi/shadowOui
-# create patch for Debian
-#diff -u /scisoft/XRayOptics/OASYS-SCISOFT13/shadowOui/orangecontrib/shadow/util/shadow_objects.py /scisoft/XRayOptics/OASYS-SCISOFT12/shadowOui/orangecontrib/shadow/util/shadow_objects.py > patch1.dif
-# apply patch for Debian
-patch ./shadowOui/orangecontrib/shadow/util/shadow_objects.py < patch1.diff
 cd shadowOui
 python setup.py develop
 cd ..
