@@ -29,8 +29,8 @@
 #
 
 # proxy 
-export https_proxy=http://proxy.esrf.fr:3128/
-export http_proxy=http://proxy.esrf.fr:3128/
+# export https_proxy=http://proxy.esrf.fr:3128/
+# export http_proxy=http://proxy.esrf.fr:3128/
 
 # clean old stuff
 echo "Cleaning old installation files..."
