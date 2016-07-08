@@ -56,30 +56,30 @@ pip install --upgrade numpy>=1.9.0
 echo "Installing Orange dependency scipy"
 pip install --upgrade scipy>=0.11.0
 
-echo "Installing Orange dependency bottlechest"
-# NOTE: better to install from sources to avoid problems (with numpy version?) 
-# pip install --upgrade bottlechest>=0.7.0
-git clone https://github.com/biolab/bottlechest
-cd bottlechest
-python setup.py install
-cd ..
+# echo "Installing Orange dependency bottlechest"
+# # NOTE: better to install from sources to avoid problems (with numpy version?) 
+# # pip install --upgrade bottlechest>=0.7.0
+# git clone https://github.com/biolab/bottlechest
+# cd bottlechest
+# python setup.py install
+# cd ..
 
-echo "Installing Orange dependency chardet"
-pip install --upgrade chardet>=2.3.0
-echo "Installing Orange dependency nose"
-pip install --upgrade nose==1.2.1
-echo "Installing Orange dependency JinJa2"
-pip install --upgrade Jinja2==2.6
-echo "Installing Orange dependency Sphinx"
-pip install --upgrade Sphinx>=1.3
-echo "Installing Orange dependency recommonmark"
-pip install --upgrade recommonmark>=0.1.1
-echo "Installing Orange dependency numpydoc"
-pip install --upgrade numpydoc
-echo "Installing Orange dependency beautifulsoup4"
-pip install --upgrade beautifulsoup4
-echo "Installing Orange dependency xldr"
-pip install --upgrade xlrd>=0.9.2
+# echo "Installing Orange dependency chardet"
+# pip install --upgrade chardet>=2.3.0
+# echo "Installing Orange dependency nose"
+# pip install --upgrade nose==1.2.1
+# echo "Installing Orange dependency JinJa2"
+# pip install --upgrade Jinja2==2.6
+# echo "Installing Orange dependency Sphinx"
+# pip install --upgrade Sphinx>=1.3
+# echo "Installing Orange dependency recommonmark"
+# pip install --upgrade recommonmark>=0.1.1
+# echo "Installing Orange dependency numpydoc"
+# pip install --upgrade numpydoc
+# echo "Installing Orange dependency beautifulsoup4"
+# pip install --upgrade beautifulsoup4
+# echo "Installing Orange dependency xldr"
+# pip install --upgrade xlrd>=0.9.2
 
 #
 # step 3 install Oasys+ShadowOui dependencies
@@ -97,9 +97,9 @@ pip install --upgrade matplotlib==1.4.3
 
 # xraylib
 echo "Installing Oasys dependency xraylib"
-curl -O http://lvserver.ugent.be/xraylib/xraylib-3.1.0.tar.gz
-tar xvfz xraylib-3.1.0.tar.gz
-cd xraylib-3.1.0
+curl -O http://lvserver.ugent.be/xraylib/xraylib-3.2.0.tar.gz
+tar xvfz xraylib-3.2.0.tar.gz
+cd xraylib-3.2.0
 ./configure --enable-python --enable-python-integration PYTHON=`which python`
 make
 export PYTHON_SITE_PACKAGES=`python -c "from distutils.sysconfig import get_python_lib; print(get_python_lib())"`
