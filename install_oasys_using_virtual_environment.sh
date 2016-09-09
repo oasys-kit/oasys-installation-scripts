@@ -97,9 +97,9 @@ pip install --upgrade matplotlib==1.4.3
 
 # xraylib
 echo "Installing Oasys dependency xraylib"
-curl -O http://lvserver.ugent.be/xraylib/xraylib-3.2.0.tar.gz
-tar xvfz xraylib-3.2.0.tar.gz
-cd xraylib-3.2.0
+curl -O http://lvserver.ugent.be/xraylib/xraylib-3.1.0.tar.gz
+tar xvfz xraylib-3.1.0.tar.gz
+cd xraylib-3.1.0
 ./configure --enable-python --enable-python-integration PYTHON=`which python`
 make
 export PYTHON_SITE_PACKAGES=`python -c "from distutils.sysconfig import get_python_lib; print(get_python_lib())"`
