@@ -54,7 +54,7 @@ source oasys1env/bin/activate
 echo "Installing Orange dependency numpy"
 pip install --upgrade numpy>=1.9.0
 echo "Installing Orange dependency scipy"
-pip install --upgrade scipy>=0.11.0
+pip install --upgrade scipy>=0.17.0
 
 # echo "Installing Orange dependency bottlechest"
 # # NOTE: better to install from sources to avoid problems (with numpy version?) 
