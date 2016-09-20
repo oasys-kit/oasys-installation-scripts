@@ -97,9 +97,9 @@ pip install --upgrade matplotlib==1.4.3
 
 # xraylib
 echo "Installing Oasys dependency xraylib"
-curl -O http://lvserver.ugent.be/xraylib/xraylib-3.1.0.tar.gz
-tar xvfz xraylib-3.1.0.tar.gz
-cd xraylib-3.1.0
+curl -O http://lvserver.ugent.be/xraylib/xraylib-3.2.0.tar.gz
+tar xvfz xraylib-3.2.0.tar.gz
+cd xraylib-3.2.0
 ./configure --enable-python --enable-python-integration PYTHON=`which python`
 make
 export PYTHON_SITE_PACKAGES=`python -c "from distutils.sysconfig import get_python_lib; print(get_python_lib())"`
@@ -127,13 +127,14 @@ cd ..
 
 #pymca
 echo "Installing Oasys dependency pymca"
+pip install fisx
 git clone https://github.com/vasole/pymca
 cd pymca
 python setup.py install
 cd ..
 
 #
-# step 4 install oasys and shadowOui
+# step 4 install oasys
 #
 echo "Installing Oasys..."
 git clone https://github.com/lucarebuffi/oasys1
@@ -141,10 +142,12 @@ cd oasys1
 python setup.py develop
 cd ..
 
-echo "Installing ShadowOui"
-git clone https://github.com/lucarebuffi/shadowOui
-cd shadowOui
-python setup.py develop
-cd ..
+sudo ./create_desktop_application.sh
+
+#echo "Installing ShadowOui"
+#git clone https://github.com/lucarebuffi/shadowOui
+#cd shadowOui
+#python setup.py develop
+#cd ..
 
 echo "All done. You can start Oasys+ShadowOui using ./start_oasys.sh"
