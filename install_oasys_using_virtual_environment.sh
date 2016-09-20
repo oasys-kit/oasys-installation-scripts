@@ -142,7 +142,7 @@ cd oasys1
 python setup.py develop
 cd ..
 
-sudo ./create_desktop_application.sh
+# sudo ./create_desktop_application.sh
 
 #echo "Installing ShadowOui"
 #git clone https://github.com/lucarebuffi/shadowOui
@@ -150,4 +150,4 @@ sudo ./create_desktop_application.sh
 #python setup.py develop
 #cd ..
 
-echo "All done. You can start Oasys+ShadowOui using ./start_oasys.sh"
+echo "All done. You can start Oasys using ./start_oasys.sh"
