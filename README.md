@@ -1,4 +1,8 @@
 # oasys-installation-scripts
+
+Please read the instructions to install Oasys at this wiki: 
+https://github.com/srio/oasys-installation-scripts/wiki
+
 Some scripts and docs that may help in installing Oasys:
 
 prepare_installation.sh : installs some packages requing "sudo" for linux (debian+ubuntu) 
