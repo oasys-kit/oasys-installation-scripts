@@ -7,12 +7,16 @@ sudo apt-get remove python3-numpy
 sudo apt-get install python3-pip
 sudo pip3 install pip --upgrade
 
-if [[ `lsb_release -rs` == "14.04" ]]
+if [ `lsb_release -rs` == "14.04" ]; then
+  echo "INSTALLING VIRTUAL ENV ON 14.04"
   sudo pip3 install virtualenv
   sudo apt-get install python3.4-venv
-then
-  sudo apt-get install python3-virtualenv
-  sudo apt install virtualenv
+else
+  if [ `lsb_release -rs` == "16.04" ]; then
+    echo "INSTALLING VIRTUAL ENV ON 16.04"
+    sudo apt-get install python3-virtualenv
+    sudo apt install virtualenv
+  fi
 fi
 
 sudo apt-get install python3-pyqt4
