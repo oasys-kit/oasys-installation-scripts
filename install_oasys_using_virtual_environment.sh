@@ -34,9 +34,9 @@
 
 # clean old stuff
 echo "Cleaning old installation files..."
-rm -rf =* oasys1 shadow3 xraylib* srxraylib shadowOui pymca
+rm -rf =* shadow3 xraylib* pymca
 # clean old virtual environment
-rm -rf oasys1env 
+rm -rf oasys1env
 
 
 #
@@ -48,7 +48,7 @@ source oasys1env/bin/activate
 
 #
 # step 2: install Orange dependencies with pip (it can take a very very
-# long time, in particular scipy) 
+# long time, in particular scipy)
 #
 
 echo "Installing Orange dependency numpy"
@@ -56,65 +56,23 @@ pip install --upgrade numpy>=1.9.0
 echo "Installing Orange dependency scipy"
 pip install --upgrade scipy>=0.17.0
 
-# echo "Installing Orange dependency bottlechest"
-# # NOTE: better to install from sources to avoid problems (with numpy version?) 
-# # pip install --upgrade bottlechest>=0.7.0
-# git clone https://github.com/biolab/bottlechest
-# cd bottlechest
-# python setup.py install
-# cd ..
-
-# echo "Installing Orange dependency chardet"
-# pip install --upgrade chardet>=2.3.0
-# echo "Installing Orange dependency nose"
-# pip install --upgrade nose==1.2.1
-# echo "Installing Orange dependency JinJa2"
-# pip install --upgrade Jinja2==2.6
-# echo "Installing Orange dependency Sphinx"
-# pip install --upgrade Sphinx>=1.3
-# echo "Installing Orange dependency recommonmark"
-# pip install --upgrade recommonmark>=0.1.1
-# echo "Installing Orange dependency numpydoc"
-# pip install --upgrade numpydoc
-# echo "Installing Orange dependency beautifulsoup4"
-# pip install --upgrade beautifulsoup4
-# echo "Installing Orange dependency xldr"
-# pip install --upgrade xlrd>=0.9.2
-
-#
-# step 3 install Oasys+ShadowOui dependencies
-#
-
-echo "Installing Oasys dependency orange-canvas-core"
-pip install --upgrade orange-canvas-core>=0.0.7
-
-echo "Installing Oasys dependency orange-widget-core"
-pip install --upgrade orange-widget-core>=0.0
-
-#matplotlib 
+#matplotlib
 echo "Installing matplotlib"
 pip install --upgrade matplotlib==1.4.3
 
 # xraylib
 echo "Installing Oasys dependency xraylib"
 curl -O http://lvserver.ugent.be/xraylib/xraylib-3.2.0.tar.gz
+
 tar xvfz xraylib-3.2.0.tar.gz
 cd xraylib-3.2.0
 ./configure --enable-python --enable-python-integration PYTHON=`which python`
 make
 export PYTHON_SITE_PACKAGES=`python -c "from distutils.sysconfig import get_python_lib; print(get_python_lib())"`
-cp python/xrayhelp.py $PYTHON_SITE_PACKAGES 
-cp python/xraylib.py $PYTHON_SITE_PACKAGES 
-cp python/.libs/xraylib_np.so  $PYTHON_SITE_PACKAGES
 cp python/.libs/_xraylib.so  $PYTHON_SITE_PACKAGES
-cp python/xraymessages.py  $PYTHON_SITE_PACKAGES 
-cd ..
-
-#SRxraylib
-echo "Installing Oasys dependency SRxraylib"
-git clone https://github.com/lucarebuffi/srxraylib
-cd srxraylib
-python setup.py install
+cp python/xrayhelp.py $PYTHON_SITE_PACKAGES
+cp python/xraylib.py $PYTHON_SITE_PACKAGES
+cp python/xraymessages.py  $PYTHON_SITE_PACKAGES
 cd ..
 
 #shadow3
@@ -137,17 +95,7 @@ cd ..
 # step 4 install oasys
 #
 echo "Installing Oasys..."
-git clone https://github.com/lucarebuffi/oasys1
-cd oasys1
-python setup.py develop
-cd ..
 
-# sudo ./create_desktop_application.sh
-
-#echo "Installing ShadowOui"
-#git clone https://github.com/lucarebuffi/shadowOui
-#cd shadowOui
-#python setup.py develop
-#cd ..
+pip install oasys
 
 echo "All done. You can start Oasys using ./start_oasys.sh"
