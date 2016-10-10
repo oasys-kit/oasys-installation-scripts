@@ -14,10 +14,24 @@
 
 # clean old stuff
 echo "Cleaning old installation files..."
-rm -rf shadowOui xoppy crystal wise xrayserver
+rm -rf srxraylib pySRU shadowOui xoppy crystal wise xrayserver 
 
 # define python
 source oasys1env/bin/activate
+
+# srxraylib (needed in xoppy+shadowOui)
+echo "Installing srxraylib"
+git clone https://github.com/lucarebuffi/srxraylib
+cd srxraylib
+python setup.py develop
+cd ..
+
+# pySRU (needed in xoppy)
+echo "Installing pySRU"
+git clone https://github.com/sophieth/und_sophie_2016 pySRU
+cd pySRU
+python setup.py develop
+cd ..
 
 # shadowOui
 echo "Installing Oasys add-on shadowOui"
