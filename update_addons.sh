@@ -8,13 +8,23 @@
 #
 #
 
+# proxy 
+# export https_proxy=http://proxy.esrf.fr:3128/
+# export http_proxy=http://proxy.esrf.fr:3128/
 
 # clean old stuff
 echo "Cleaning old installation files..."
-rm -rf xoppy crystal wise xrayserver
+rm -rf shadowOui xoppy crystal wise xrayserver
 
 # define python
 source oasys1env/bin/activate
+
+# shadowOui
+echo "Installing Oasys add-on shadowOui"
+git clone https://github.com/lucarebuffi/shadowOui
+cd shadowOui
+python setup.py develop
+cd ..
 
 # xoppy
 echo "Installing Oasys add-on xoppy"
