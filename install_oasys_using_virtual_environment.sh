@@ -29,8 +29,7 @@
 #
 
 # proxy 
-# export https_proxy=http://proxy.esrf.fr:3128/
-# export http_proxy=http://proxy.esrf.fr:3128/
+# export all_proxy=http://proxy.esrf.fr:3128/
 
 # clean old stuff
 echo "Cleaning old installation files..."
@@ -73,6 +72,13 @@ cp python/.libs/_xraylib.so  $PYTHON_SITE_PACKAGES
 cp python/xrayhelp.py $PYTHON_SITE_PACKAGES
 cp python/xraylib.py $PYTHON_SITE_PACKAGES
 cp python/xraymessages.py  $PYTHON_SITE_PACKAGES
+cd ..
+
+#srxraylib
+echo "Installing Oasys dependency srxraylib"
+git clone https://github.com/lucarebuffi/srxraylib
+cd srxraylib
+python setup.py develop
 cd ..
 
 #shadow3

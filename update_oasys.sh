@@ -7,11 +7,12 @@
 #===============================================================================
 #
 #
-
+# proxy 
+# export all_proxy=http://proxy.esrf.fr:3128/
 
 # clean old stuff
 echo "Cleaning old installation files..."
-rm -rf oasys1 shadow3 srxraylib shadowOui 
+rm -rf oasys1 shadow3 srxraylib 
 
 #define python
 source oasys1env/bin/activate
@@ -33,16 +34,6 @@ cd ..
 
 # oasys 
 echo "Installing Oasys..."
-git clone https://github.com/lucarebuffi/oasys1
-cd oasys1
-python setup.py develop
-cd ..
-
-# shadowOui
-echo "Installing ShadowOui"
-git clone https://github.com/lucarebuffi/shadowOui
-cd shadowOui
-python setup.py develop
-cd ..
+pip install oasys --upgrade
 
 echo "All done. You can start Oasys+ShadowOui using ./start_oasys.sh"
