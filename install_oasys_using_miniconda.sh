@@ -1,26 +1,39 @@
 #!/bin/bash
 
-# Installs OASYS (and ShadowOui) into Linux home directory as "ShadowOui"
-# support is only for 64-bit Linux at this time
+# Installs ShadowOui into Linux home directory as "ShadowOui"
+# support is only for Linux at this time
 
-echo "Downloading Miniconda installer"
-export SHADOWOUI_HOME=$HOME/ShadowOui
+# assume these things are already installed:
+# bash
+# wget
+# curl
+# git
+# compilers: C, C++, FORTRAN
+# OpenGL and development package (header files)
+# libGLU and development package (header files)
+
+
+echo "#----------> Downloading Miniconda installer"
+#export SHADOWOUI_HOME=$HOME/ShadowOui
+export SHADOWOUI_HOME=$HOME/Oasys_Application
+mkdir -p $SHADOWOUI_HOME
+cd $SHADOWOUI_HOME
 wget http://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh
 
-echo "Installing Miniconda and Python3"
+echo "#----------> Installing Miniconda and Python3 into $SHADOWOUI_HOME"
 bash miniconda.sh -b -p $SHADOWOUI_HOME/x86_64
 export PATH=$SHADOWOUI_HOME/x86_64/bin:$PATH
 
-which python
-which pip
-which conda
+echo `which python`
+echo `which pip`
+echo `which conda`
 
 export PYTHON_SITE_PACKAGES=`python -c "from distutils.sysconfig import get_python_lib; print(get_python_lib())"`
 
-echo "Updating Python3 packages"
+echo "#----------> Updating Python3 packages"
 conda update --yes conda pip
 
-echo "Installing additional pre-built packages"
+echo "#----------> Installing additional pre-built packages"
 conda install --yes \
 	pyqt=4 \
 	numpy \
@@ -34,7 +47,7 @@ conda install --yes \
 
 
 # xraylib
-echo "Installing Oasys dependency xraylib"
+echo "#----------> Installing Oasys dependency xraylib"
 curl -O http://lvserver.ugent.be/xraylib/xraylib-3.2.0.tar.gz
 tar xvfz xraylib-3.2.0.tar.gz
 cd xraylib-3.2.0
@@ -48,7 +61,7 @@ cd ..
 
 
 # srxraylib
-echo "Installing Oasys dependency srxraylib"
+echo "#----------> Installing Oasys dependency srxraylib"
 git clone https://github.com/lucarebuffi/srxraylib
 cd srxraylib
 python setup.py develop
@@ -56,7 +69,7 @@ cd ..
 
 
 #shadow3
-echo "Installing Oasys dependency shadow3"
+echo "#----------> Installing Oasys dependency shadow3"
 git clone https://github.com/srio/shadow3
 cd shadow3
 python setup.py build
@@ -65,7 +78,7 @@ cd ..
 
 
 # fisx
-echo "Installing pymca dependency fisx"
+echo "#----------> Installing pymca dependency fisx"
 git clone https://github.com/vasole/fisx
 cd fisx
 python setup.py install
@@ -73,20 +86,21 @@ cd ..
 
 
 #pymca
-echo "Installing Oasys dependency pymca"
-git clone https://github.com/vasole/pymca
-cd pymca
-python setup.py install
-cd ..
+echo "#----------> Installing Oasys dependency pymca"
+pip install PyMca5
+# git clone https://github.com/vasole/pymca
+# cd pymca
+# python setup.py install
+# cd ..
 
 
-echo "Installing Oasys..."
+echo "#----------> Installing Oasys..."
 pip install oasys
 
-exit
+
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-echo "Configuring script to run ShadowOui..."
-export SCRIPT=$SHADOWOUI_HOME/start_shadowoui.sh
+echo "#----------> Configuring script to run OASYS & ShadowOui..."
+export SCRIPT=$SHADOWOUI_HOME/start_oasys_shadowoui.sh
 
 cmd="#\x21/bin/bash"
 cmd+="\n\n"
@@ -94,8 +108,16 @@ cmd+="$SHADOWOUI_HOME/x86_64/bin/python -m oasys.canvas &"
 echo -e $cmd > $SCRIPT
 chmod +x $SCRIPT
 
-# click on Add-Ons
-# check next to ShadowOui (options: OASYS-XRayServer & OASYS-XOPPY)
-# click OK button
-# wait for installation
-# restart oasys
+echo ""
+echo ""
+echo "#---------------------------"
+echo ""
+echo "Instructions"
+echo "============"
+echo ""
+echo "* start ShadowOui with this command: $SCRIPT"
+echo "* click on Add-Ons"
+echo "* check next to ShadowOui (options: OASYS-XRayServer & OASYS-XOPPY)"
+echo "* click OK button"
+echo "* wait for installation"
+echo "* restart oasys"
