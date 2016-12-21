@@ -22,9 +22,8 @@ rm -r $PYTHON_SITE_PACKAGES/wpg
 
 # wpg
 echo "Installing Oasys dependency wpg"
-git clone https://github.com/samoylv/wpg
-cd xwp
-make all
-cp -r wpg $PYTHON_SITE_PACKAGES 
+git clone https://github.com/srio/wpg
+cd wpg
+python setup.py develop
 cd ..
 echo "All done. "
