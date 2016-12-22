@@ -59,12 +59,49 @@ cd ..
 # THESE ARE EXPERIMENTAL - INSTALL AT YOUR OWN RISK........
 #
 
-# crystal
-echo "Installing Oasys add-on crystal"
-rm -rf crystal 
-git clone https://github.com/mark-glass/Orange-Crystal crystal
-cd crystal
-python setup.py develop
-cd ..
+# # oasys-addon-template
+# echo "Installing Oasys add-on oasys-addon-template"
+# rm -rf oasys-addon-template 
+# git clone https://github.com/srio/oasys-addon-template
+# cd oasys-addon-template
+# python setup.py develop
+# cd ..
+
+# # crystal
+# echo "Installing Oasys add-on crystal"
+# rm -rf crystal 
+# git clone https://github.com/mark-glass/Orange-Crystal crystal
+# cd crystal
+# python setup.py develop
+# cd ..
+
+# # oasys-dynXRD
+# echo "Installing Oasys add-on oasys-dynXRD"
+# rm -rf dynXRD
+# git clone https://github.com/suracefm/dynXRD
+# cd dynXRD
+# git checkout oasys
+# python setup.py develop
+# cd ..
+# rm -rf oasysdynXRD
+# git clone https://github.com/suracefm/oasys-dynXRD oasysdynXRD
+# cd oasysdynXRD
+# python setup.py develop
+# cd ..
+
+# # oasys-crystalpy
+# echo "Installing Oasys add-on oasys-crystalpy"
+# rm -rf crystalpy
+# git clone https://github.com/edocappelli/crystalpy
+# cd crystalpy
+# python setup.py develop
+# cd ..
+# rm -rf oasyscrystalpy
+# git clone https://github.com/edocappelli/oasys-crystalpy oasyscrystalpy
+# cd oasyscrystalpy
+# python setup.py develop
+# cd ..
+
+
 
 echo "All done. You can start Oasys with new add-ons using ./start_oasys.sh"

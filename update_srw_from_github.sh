@@ -20,7 +20,7 @@ source oasys1env/bin/activate
 export PYTHON_SITE_PACKAGES=`python -c "from distutils.sysconfig import get_python_lib; print(get_python_lib())"`
 
 echo "Cleaning old installation files..."
-rm $PYTHON_SITE_PACKAGES/srwlpy.so
+rm $PYTHON_SITE_PACKAGES/srwlpy*.so
 rm $PYTHON_SITE_PACKAGES/uti*.py 
 rm $PYTHON_SITE_PACKAGES/srwl_uti*.py 
 rm $PYTHON_SITE_PACKAGES/srwlib.py
@@ -89,6 +89,8 @@ make -j8 clean lib
 
 # make (creates srwlpy.so and puts it in env/work/srw_python/)
 cd ../py
+cp Makefile Makefile.orig
+sed -i -e "s/gcc\/srwlpy/gcc\/srwlpy\*/" Makefile
 make python
 
 cd ../../
@@ -98,7 +100,7 @@ pwd
 #
 # install
 #
-cp env/work/srw_python/srwlpy.so $PYTHON_SITE_PACKAGES
+cp env/work/srw_python/srwlpy*.so $PYTHON_SITE_PACKAGES
 cp env/work/srw_python/uti*.py $PYTHON_SITE_PACKAGES
 cp env/work/srw_python/srwl_uti*.py $PYTHON_SITE_PACKAGES
 cp env/work/srw_python/srwlib.py $PYTHON_SITE_PACKAGES
