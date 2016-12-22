@@ -2,7 +2,7 @@
 
 #===============================================================================
 #
-# script to update/install srwlin from buzmakov package
+# script to update/install srwlib
 #
 # srio@esrf.eu
 #
@@ -61,7 +61,6 @@ cp Makefile Makefile.orig
 #TODO : this did not work for Mac
 sed -e "s/^CFLAGS =/CFLAGS = -fPIC/" Makefile -i
 make
-#make install
 cp fftw/.libs/libfftw.a ..
 cd ../..
 echo "Done fftw"
@@ -90,6 +89,7 @@ make -j8 clean lib
 # make (creates srwlpy.so and puts it in env/work/srw_python/)
 cd ../py
 cp Makefile Makefile.orig
+#TODO check in mac, but this change seems not to be needed
 sed -i -e "s/gcc\/srwlpy/gcc\/srwlpy\*/" Makefile
 make python
 
