@@ -33,7 +33,7 @@
 
 # clean old stuff
 echo "Cleaning old installation files..."
-rm -rf =* shadow3 xraylib* pymca
+rm -rf =* shadow3 xraylib* syned wofry
 # clean old virtual environment
 rm -rf oasys1env
 
@@ -42,8 +42,12 @@ rm -rf oasys1env
 # step 1: create and start python3 virtual environment
 #
 
-virtualenv -p python3 --system-site-packages oasys1env
+virtualenv -p python3  --system-site-packages oasys1env
 source oasys1env/bin/activate
+
+pip install --upgrade pip
+pip install --upgrade setuptools
+pip install --upgrade wheel
 
 #
 # step 2: install Orange dependencies with pip (it can take a very very
@@ -61,18 +65,7 @@ pip install --upgrade matplotlib==1.4.3
 
 # xraylib
 echo "Installing Oasys dependency xraylib"
-curl -O http://lvserver.ugent.be/xraylib/xraylib-3.2.0.tar.gz
-
-tar xvfz xraylib-3.2.0.tar.gz
-cd xraylib-3.2.0
-./configure --enable-python --enable-python-integration PYTHON=`which python`
-make
-export PYTHON_SITE_PACKAGES=`python -c "from distutils.sysconfig import get_python_lib; print(get_python_lib())"`
-cp python/.libs/_xraylib.so  $PYTHON_SITE_PACKAGES
-cp python/xrayhelp.py $PYTHON_SITE_PACKAGES
-cp python/xraylib.py $PYTHON_SITE_PACKAGES
-cp python/xraymessages.py  $PYTHON_SITE_PACKAGES
-cd ..
+pip install http://ftp.esrf.eu/pub/scisoft/Oasys/pip/xraylib-3.1.tar.gz
 
 #srxraylib
 echo "Installing Oasys dependency srxraylib"
@@ -89,12 +82,20 @@ python setup.py build
 python setup.py develop
 cd ..
 
-#pymca
-echo "Installing Oasys dependency pymca"
-pip install fisx
-git clone https://github.com/vasole/pymca
-cd pymca
-python setup.py install
+#silx
+echo "Installing Oasys dependency silx"
+pip install silx
+
+echo "Installing Oasys dependency syned"
+git clone https://github.com/lucarebuffi/syned
+cd syned
+python setup.py sdist develop
+cd ..
+
+echo "Installing Oasys dependency wofry"
+git clone https://github.com/lucarebuffi/wofry
+cd wofry
+python setup.py sdist develop
 cd ..
 
 #

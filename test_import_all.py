@@ -16,7 +16,9 @@ print("matplotlib version:", matplotlib.__version__)
 import xraylib
 import srxraylib
 import Shadow
-import PyMca5
+import syned
+import wofry
+import silx
 
 
 
