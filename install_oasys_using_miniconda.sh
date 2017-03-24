@@ -64,7 +64,7 @@ cd ..
 echo "#----------> Installing Oasys dependency srxraylib"
 git clone https://github.com/lucarebuffi/srxraylib
 cd srxraylib
-python setup.py develop
+pip install -e . --no-binary :all:
 cd ..
 
 
@@ -73,7 +73,7 @@ echo "#----------> Installing Oasys dependency shadow3"
 git clone https://github.com/srio/shadow3
 cd shadow3
 python setup.py build
-python setup.py develop
+pip install -e . --no-binary :all:
 cd ..
 
 

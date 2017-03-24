@@ -24,6 +24,6 @@ rm -r $PYTHON_SITE_PACKAGES/wpg
 echo "Installing Oasys dependency wpg"
 git clone https://github.com/srio/wpg
 cd wpg
-python setup.py develop
+pip install -e . --no-binary :all:
 cd ..
 echo "All done. "

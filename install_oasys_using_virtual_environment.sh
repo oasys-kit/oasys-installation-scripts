@@ -33,7 +33,7 @@
 
 # clean old stuff
 echo "Cleaning old installation files..."
-rm -rf =* shadow3 xraylib* syned wofry
+rm -rf =* shadow3 xraylib* srxraylib syned wofry
 # clean old virtual environment
 rm -rf oasys1env
 
@@ -71,7 +71,7 @@ pip install http://ftp.esrf.eu/pub/scisoft/Oasys/pip/xraylib-3.1.tar.gz
 echo "Installing Oasys dependency srxraylib"
 git clone https://github.com/lucarebuffi/srxraylib
 cd srxraylib
-python setup.py develop
+pip install -e . --no-binary :all:
 cd ..
 
 #shadow3
@@ -79,7 +79,7 @@ echo "Installing Oasys dependency shadow3"
 git clone https://github.com/srio/shadow3
 cd shadow3
 python setup.py build
-python setup.py develop
+pip install -e . --no-binary :all:
 cd ..
 
 #silx
@@ -89,13 +89,13 @@ pip install silx
 echo "Installing Oasys dependency syned"
 git clone https://github.com/lucarebuffi/syned
 cd syned
-python setup.py sdist develop
+pip install -e . --no-binary :all:
 cd ..
 
 echo "Installing Oasys dependency wofry"
 git clone https://github.com/lucarebuffi/wofry
 cd wofry
-python setup.py sdist develop
+pip install -e . --no-binary :all:
 cd ..
 
 #
@@ -103,6 +103,14 @@ cd ..
 #
 echo "Installing Oasys..."
 
-pip install oasys
+pip install 'orange-widget-core>=0.0,<0.1'
+pip install 'orange-canvas-core>=0.0.7,<0.1'
 
+echo "Installing Oasys from github"
+git clone https://github.com/lucarebuffi/oasys1
+cd oasys1
+pip install -e . --no-binary :all:
+cd ..
+
+echo "All done. "
 echo "All done. You can start Oasys using ./start_oasys.sh"
