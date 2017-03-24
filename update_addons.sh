@@ -97,9 +97,9 @@ cd ..
 # cd crystalpy
 # pip install -e . --no-binary :all:
 # cd ..
-# pip uninstall oasyscrystalpy
+# pip uninstall oasys-crystalpy
 # rm -rf oasys-crystalpy
-# git clone https://github.com/edocappelli/oasys-crystalpy oasys-crystalpy
+# git clone https://github.com/edocappelli/oasys-crystalpy 
 # cd oasys-crystalpy
 # pip install -e . --no-binary :all:
 # cd ..
