@@ -33,7 +33,7 @@
 
 # clean old stuff
 echo "Cleaning old installation files..."
-rm -rf =* shadow3 xraylib* srxraylib syned wofry
+rm -rf =* shadow3 xraylib* pymca
 # clean old virtual environment
 rm -rf oasys1env
 
@@ -42,12 +42,8 @@ rm -rf oasys1env
 # step 1: create and start python3 virtual environment
 #
 
-virtualenv -p python3  --system-site-packages oasys1env
+virtualenv -p python3 --system-site-packages oasys1env
 source oasys1env/bin/activate
-
-pip install --upgrade pip
-pip install --upgrade setuptools
-pip install --upgrade wheel
 
 #
 # step 2: install Orange dependencies with pip (it can take a very very
@@ -65,13 +61,24 @@ pip install --upgrade matplotlib==1.4.3
 
 # xraylib
 echo "Installing Oasys dependency xraylib"
-pip install http://ftp.esrf.eu/pub/scisoft/Oasys/pip/xraylib-3.1.tar.gz
+curl -O http://lvserver.ugent.be/xraylib/xraylib-3.2.0.tar.gz
+
+tar xvfz xraylib-3.2.0.tar.gz
+cd xraylib-3.2.0
+./configure --enable-python --enable-python-integration PYTHON=`which python`
+make
+export PYTHON_SITE_PACKAGES=`python -c "from distutils.sysconfig import get_python_lib; print(get_python_lib())"`
+cp python/.libs/_xraylib.so  $PYTHON_SITE_PACKAGES
+cp python/xrayhelp.py $PYTHON_SITE_PACKAGES
+cp python/xraylib.py $PYTHON_SITE_PACKAGES
+cp python/xraymessages.py  $PYTHON_SITE_PACKAGES
+cd ..
 
 #srxraylib
 echo "Installing Oasys dependency srxraylib"
 git clone https://github.com/lucarebuffi/srxraylib
 cd srxraylib
-pip install -e . --no-binary :all:
+python setup.py develop
 cd ..
 
 #shadow3
@@ -79,23 +86,15 @@ echo "Installing Oasys dependency shadow3"
 git clone https://github.com/srio/shadow3
 cd shadow3
 python setup.py build
-pip install -e . --no-binary :all:
+python setup.py develop
 cd ..
 
-#silx
-echo "Installing Oasys dependency silx"
-pip install silx
-
-echo "Installing Oasys dependency syned"
-git clone https://github.com/lucarebuffi/syned
-cd syned
-pip install -e . --no-binary :all:
-cd ..
-
-echo "Installing Oasys dependency wofry"
-git clone https://github.com/lucarebuffi/wofry
-cd wofry
-pip install -e . --no-binary :all:
+#pymca
+echo "Installing Oasys dependency pymca"
+pip install fisx
+git clone https://github.com/vasole/pymca
+cd pymca
+python setup.py install
 cd ..
 
 #
@@ -103,14 +102,6 @@ cd ..
 #
 echo "Installing Oasys..."
 
-pip install 'orange-widget-core>=0.0,<0.1'
-pip install 'orange-canvas-core>=0.0.7,<0.1'
+pip install oasys
 
-echo "Installing Oasys from github"
-git clone https://github.com/lucarebuffi/oasys1
-cd oasys1
-pip install -e . --no-binary :all:
-cd ..
-
-echo "All done. "
 echo "All done. You can start Oasys using ./start_oasys.sh"
