@@ -40,8 +40,7 @@ autoreconf -i
 make
 cp python/xrayhelp.py $PYTHON_SITE_PACKAGES 
 cp python/xraylib.py $PYTHON_SITE_PACKAGES 
-cp python/.libs/xraylib_np.so  $PYTHON_SITE_PACKAGES
-cp python/.libs/_xraylib.so  $PYTHON_SITE_PACKAGES
+cp python/.libs/_xraylib*.so  $PYTHON_SITE_PACKAGES
 cp python/xraymessages.py  $PYTHON_SITE_PACKAGES 
 cd ..
-echo "All done. "
+echo "All done for xraylib. "

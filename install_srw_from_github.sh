@@ -108,5 +108,5 @@ echo "Done installing"
 #
 #
 cd ..
-echo "All done. "
+echo "All done for SRW. "
 pwd
