@@ -23,6 +23,7 @@
 #
 #
 
+cd ..
 
 #
 # step 0: some local needs, like for ESRF proxy and clean all stuff

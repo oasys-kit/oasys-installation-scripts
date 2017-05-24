@@ -12,6 +12,7 @@
 # OpenGL and development package (header files)
 # libGLU and development package (header files)
 
+cd ..
 
 echo "#----------> Downloading Miniconda installer"
 #export SHADOWOUI_HOME=$HOME/ShadowOui
