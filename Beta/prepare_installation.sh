@@ -4,9 +4,10 @@ if [ `lsb_release -rs` == "16.10" ]
 then
   echo "INSTALLING OASYS ON 16.10 IS NOT POSSIBLE: TRY 16.04"
 else
-  sudo apt-get remove python3-matplotlib
-  sudo apt-get remove python3-scipy
-  sudo apt-get remove python3-numpy
+  echo "INSTALLING OASYS"
+  #sudo apt-get remove python3-matplotlib
+  #sudo apt-get remove python3-scipy
+  #sudo apt-get remove python3-numpy
 
   sudo apt-get -y install python3-pip
   sudo pip3 install pip --upgrade
