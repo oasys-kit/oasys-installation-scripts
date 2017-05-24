@@ -49,7 +49,6 @@ source oasys1env/bin/activate
 pip uninstall -y setuptools
 pip install setuptools==34.3.0
 
-
 # xraylib
 echo "Installing Oasys dependency xraylib"
 curl -O http://lvserver.ugent.be/xraylib/xraylib-3.2.0.tar.gz
