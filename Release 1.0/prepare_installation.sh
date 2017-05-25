@@ -1,12 +1,15 @@
 #!/bin/bash
 
+wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
+chmod +x Miniconda3-latest-Linux-x86_64.sh
+./Miniconda3-latest-Linux-x86_64.sh
 
 echo "INSTALLING OASYS ON "
 echo `lsb_release -rs`
 
-sudo /home/oasys/miniconda3/bin/conda install pip
-sudo /home/oasys/miniconda3/bin/conda install virtualenv
-sudo /home/oasys/miniconda3/bin/conda install -c defaults pyqt=5 qt
+/home/oasys/miniconda3/bin/conda install pip
+/home/oasys/miniconda3/bin/conda install virtualenv
+/home/oasys/miniconda3/bin/conda install -c defaults pyqt=5 qt
 
 # SCIPY
 sudo apt-get -y install libblas-dev liblapack-dev libatlas-base-dev gfortran
