@@ -21,3 +21,6 @@ sudo apt-get -y install libfreetype6 libfreetype6-dev
 sudo apt-get -y install swig
 
 
+source ~/.bashrc
+
+
