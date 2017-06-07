@@ -42,7 +42,7 @@ rm -rf oasys1env
 # step 1: create and start python3 virtual environment
 #
 
-virtualenv -p python3 --system-site-packages oasys1env
+$HOME/miniconda3/bin/virtualenv -p python3 --system-site-packages oasys1env
 source oasys1env/bin/activate
 
 # CORRECTING BUG IN SETUPTOOLS!!!!!!
