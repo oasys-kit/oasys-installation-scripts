@@ -30,7 +30,7 @@ cd ..
 #
 
 # proxy 
-# export all_proxy=http://proxy.esrf.fr:3128/
+export all_proxy=http://proxy.esrf.fr:3128/
 
 # clean old stuff
 echo "Cleaning old installation files..."
@@ -51,18 +51,9 @@ pip install setuptools==34.3.0
 
 # xraylib
 echo "Installing Oasys dependency xraylib"
-curl -O http://lvserver.ugent.be/xraylib/xraylib-3.2.0.tar.gz
+pip install numpy
+$HOME/miniconda3/bin/conda install -c conda-forge xraylib=3.2.0
 
-tar xvfz xraylib-3.2.0.tar.gz
-cd xraylib-3.2.0
-./configure --enable-python --enable-python-integration PYTHON=`which python`
-make
-export PYTHON_SITE_PACKAGES=`python -c "from distutils.sysconfig import get_python_lib; print(get_python_lib())"`
-cp python/.libs/_xraylib.so  $PYTHON_SITE_PACKAGES
-cp python/xrayhelp.py $PYTHON_SITE_PACKAGES
-cp python/xraylib.py $PYTHON_SITE_PACKAGES
-cp python/xraymessages.py  $PYTHON_SITE_PACKAGES
-cd ..
 
 #
 # step 4 install oasys
@@ -71,4 +62,4 @@ echo "Installing Oasys..."
 
 pip install oasys1
 
-echo "All done. You can start Oasys using ./start_oasys.sh"
+echo "All done. You can start Oasys using ../start_oasys.sh"
