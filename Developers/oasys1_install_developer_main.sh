@@ -26,11 +26,18 @@
 
 
 #
-# step 0: some local needs, like for ESRF proxy and clean all stuff
+# step -1: some local needs, like for ESRF proxy and clean all stuff
 #
-
 # proxy 
-# export all_proxy=http://proxy.esrf.fr:3128/
+export all_proxy=http://proxy.esrf.fr:3128/
+
+#
+# step 0 install python and qt from miniconda
+#
+cd ../Release\ 1.0
+./prepare_installation.sh
+# tell yes to create links in .bashrc then you can delete them
+cd ..
 
 # clean old stuff
 echo "Cleaning old installation files..."
@@ -38,11 +45,10 @@ rm -rf =* shadow3 xraylib SRW syned silx srxraylib oasys1 Orange*
 # clean old virtual environment
 rm -rf oasys1env
 
-
 #
 # step 1: create and start python3 virtual environment
 #
-
+source ~/.bashrc
 virtualenv -p python3 --system-site-packages oasys1env
 source oasys1env/bin/activate
 
@@ -52,29 +58,30 @@ source oasys1env/bin/activate
 #
 
 echo "Upgrading some tools"
-pip install --upgrade pip 
-
-
-echo "Installing Orange dependency numpy"
+# CORRECTING BUG IN SETUPTOOLS!!!!!!
+pip uninstall -y setuptools
+pip install setuptools==34.3.0
 pip install numpy
-echo "Installing Orange dependency scipy"
 pip install scipy
-
-#matplotlib
-echo "Installing matplotlib"
 pip install matplotlib
+# pip install silx
+
+
+
+
+# xraylib
+echo "Installing Oasys dependency xraylib"
+$HOME/miniconda3/bin/conda install -c conda-forge xraylib=3.2.0
+
 
 #
 # step 3: install Orange dependencies with from sources
 #
 
-# xraylib
-echo "Installing Oasys dependency xraylib"
-./install_xraylib_from_github.sh
 
 # SRW
 echo "Installing Oasys dependency SRW"
-./install_srw_from_github.sh
+./Developers/install_srw_from_github.sh
 
 #shadow3
 echo "Installing Oasys dependency shadow3"
@@ -97,6 +104,7 @@ cd ..
 echo "Installing Oasys dependency syned"
 git clone https://github.com/lucarebuffi/syned
 cd syned
+git checkout comsyl
 python setup.py build
 #pip install --no-deps -e . --no-binary :all:
 python setup.py develop
@@ -119,26 +127,24 @@ python setup.py build
 pip install . 
 cd ..
 
-# #orange-canvas-core
-pip install 'orange-canvas-core>=0.0.7,<0.1'
+#orange-canvas
+echo "Installing Oasys dependency orange-canvas"
+git clone https://github.com/lucarebuffi/orange-canvas
+cd orange-canvas
+python setup.py build
+pip install . 
+cd ..
 
-# echo "Installing Oasys dependency orange-canvas-core"
-# curl -O https://pypi.python.org/packages/13/9b/9dfc5933a15d2c90eb78a1bd3b1ad040e6a11569481d7048768490ff7a1e/Orange-Canvas-Core-0.0.7.tar.gz
-# tar xvfz Orange-Canvas-Core-0.0.7.tar.gz
-# cd Orange-Canvas-Core-0.0.7
-# python setup.py build
-# pip install .
-# cd ..
+#orange-widget-core
+echo "Installing Oasys dependency orange-widget-core"
+git clone https://github.com/lucarebuffi/orange-widget-core
+cd orange-widget-core
+python setup.py build
+pip install . 
+cd ..
 
-# #orange-widget-core
-pip install 'orange-widget-core>=0.0,<0.1'
-# echo "Installing Oasys dependency orange-widget-core"
-# curl -O https://pypi.python.org/packages/54/53/2426a247fc138bbcdbd5a7b9438026799eec2a322d386c3eaa4e15b1db37/Orange-Widget-Core-0.0.2.tar.gz
-# tar xvfz Orange-Widget-Core-0.0.2.tar.gz
-# cd Orange-Widget-Core-0.0.2
-# python setup.py build
-# pip install .
-# cd ..
+
+
 #
 # step 4 install oasys
 #
@@ -147,6 +153,6 @@ git clone https://github.com/lucarebuffi/oasys1
 cd oasys1
 python setup.py build
 python setup.py develop
-#pip install --no-deps -e . --no-binary :all:
+cd ..
 
-echo "All done. You can start Oasys using ./start_oasys.sh"
+echo "All done. You can start Oasys using ../start_oasys.sh"
