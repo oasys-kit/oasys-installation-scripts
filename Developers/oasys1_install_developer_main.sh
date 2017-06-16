@@ -5,12 +5,12 @@
 # script to install OASYS in a LINUX virtual environment in DEVELOPER mode 
 # (downloading from sources) (sudo is not required)
 #
-# run it like: 
+# IMPORTANT: 
 #
-#  cd ~/OASYS_VED
-#  ./Developers/oasys1_install_developer_main.sh
+#   run this script from this directory: ./oasys1_install_developer_main.sh
 #
 # Then start oasys by:
+#   cd ..
 #   source ./oasys1env/bin/activate
 #   python -m oasys.canvas -l4 --force-discovery
 #
@@ -34,7 +34,9 @@
 # cd ../Release\ 1.0
 # ./prepare_installation.sh
 # # tell yes to create links in .bashrc then you can delete them
-# cd ..
+
+# sits in the main VE directory
+cd ..
 
 # clean old stuff
 echo "Cleaning old installation files..."
