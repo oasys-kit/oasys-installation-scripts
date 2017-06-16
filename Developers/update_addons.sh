@@ -2,14 +2,18 @@
 
 #===============================================================================
 #
-# script to install OASYS add-ons from github sources  
+# script to install OASYS official add-ons from github sources  
+#
+# IMPORTANT: 
+#
+#   run this script from this directory: ./update_addons.sh
 #
 #===============================================================================
 #
 #
 
 # proxy 
-# export all_proxy=http://proxy.esrf.fr:3128/
+export all_proxy=http://proxy.esrf.fr:3128/
 
 
 cd ..
@@ -22,35 +26,19 @@ pip uninstall shadowOui
 rm -rf shadowOui 
 git clone https://github.com/lucarebuffi/shadowOui
 cd shadowOui
-#pip install -e . --no-binary :all:
+python setup.py build
+# pip install -e . --no-deps --no-binary :all:
 python setup.py develop
 cd ..
 
-# # wise
-# echo "Installing Oasys add-on wise"
-# pip uninstall wise
-# rm -rf wise 
-# git clone https://github.com/lucarebuffi/WISE.git wise
-# cd wise
-# pip install -e . --no-binary :all:
-# cd ..
-# 
-# # xrayserver
-# echo "Installing Oasys add-on xrayserver"
-# pip uninstall xrayserver
-# rm -rf xrayserver 
-# git clone https://github.com/lucarebuffi/XRayServer xrayserver
-# cd xrayserver
-# pip install -e . --no-binary :all:
-# cd ..
-# 
 # pySRU (needed in xoppy)
 echo "Installing pySRU"
 pip uninstall pySRU
 rm -rf pySRU 
 git clone https://github.com/srio/und_sophie_2016 pySRU
 cd pySRU
-#pip install -e . --no-binary :all:
+python setup.py build
+# pip install -e . --no-deps --no-binary :all:
 python setup.py develop
 cd ..
 # 
@@ -60,8 +48,27 @@ pip uninstall xoppy
 rm -rf xoppy 
 git clone https://github.com/srio/Orange-XOPPY xoppy
 cd xoppy
-#pip install -e . --no-binary :all:
+python setup.py build
+# pip install -e . --no-deps --no-binary :all:
 python setup.py develop
 cd ..
 
+# # wise
+# echo "Installing Oasys add-on wise"
+# pip uninstall wise
+# rm -rf wise 
+# git clone https://github.com/lucarebuffi/WISE.git wise
+# cd wise
+# pip install -e . --no-deps --no-binary :all:
+# cd ..
+# 
+# # xrayserver
+# echo "Installing Oasys add-on xrayserver"
+# pip uninstall xrayserver
+# rm -rf xrayserver 
+# git clone https://github.com/lucarebuffi/XRayServer xrayserver
+# cd xrayserver
+# pip install -e . --no-deps --no-binary :all:
+# cd ..
+# 
 echo "All done. You can start Oasys with new add-ons using ../start_oasys.sh"

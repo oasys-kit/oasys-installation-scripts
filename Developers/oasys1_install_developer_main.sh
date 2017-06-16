@@ -2,19 +2,13 @@
 
 #===============================================================================
 #
-# script to install OASYS1 in a LINUX virtual environment in developer mode 
+# script to install OASYS in a LINUX virtual environment in DEVELOPER mode 
 # (downloading from sources) (sudo is not required)
 #
-# Before starting make sure that your system has installed: 
-#      - python3
-#      - virtualenv
-#      - qt and pyqt
-#   If any of these items is not present in your system, contact the
-#   system administrator and ask for their installation.     pip install 'orange-widget-core>=0.0,<0.1'
-#   
-# Then place this script in a suitable directory (e.g., $HOME/OrangeVE) and run 
-# this script automatically (it may take a very ling time) or manually by 
-# copy/paste line by line, if you want to detect possible errors). 
+# run it like: 
+#
+#  cd ~/OASYS_VED
+#  ./Developers/oasys1_install_developer_main.sh
 #
 # Then start oasys by:
 #   source ./oasys1env/bin/activate
@@ -29,26 +23,28 @@
 # step -1: some local needs, like for ESRF proxy and clean all stuff
 #
 # proxy 
-export all_proxy=http://proxy.esrf.fr:3128/
+# export all_proxy=http://proxy.esrf.fr:3128/
 
 #
-# step 0 install python and qt from miniconda
+# step 0 if not already done (e,g, you did not make the linux non-developer
+# installation), uncomment this section for installing python and qt 
+# from miniconda
 #
-cd ../Release\ 1.0
-./prepare_installation.sh
-# tell yes to create links in .bashrc then you can delete them
-cd ..
+
+# cd ../Release\ 1.0
+# ./prepare_installation.sh
+# # tell yes to create links in .bashrc then you can delete them
+# cd ..
 
 # clean old stuff
 echo "Cleaning old installation files..."
-rm -rf =* shadow3 xraylib SRW syned silx srxraylib oasys1 Orange*
+rm -rf =* shadow3 SRW syned wofry silx srxraylib oasys1 orange-canvas orange-widget-core
 # clean old virtual environment
 rm -rf oasys1env
 
 #
 # step 1: create and start python3 virtual environment
 #
-source ~/.bashrc
 virtualenv -p python3 --system-site-packages oasys1env
 source oasys1env/bin/activate
 
@@ -61,21 +57,13 @@ echo "Upgrading some tools"
 # CORRECTING BUG IN SETUPTOOLS!!!!!!
 pip uninstall -y setuptools
 pip install setuptools==34.3.0
-pip install numpy
 pip install scipy
 pip install matplotlib
 # pip install silx
 
 
-
-
-# xraylib
-echo "Installing Oasys dependency xraylib"
-$HOME/miniconda3/bin/conda install -c conda-forge xraylib=3.2.0
-
-
 #
-# step 3: install Orange dependencies with from sources
+# step 3: install Oasys dependencies with from sources
 #
 
 
@@ -88,8 +76,8 @@ echo "Installing Oasys dependency shadow3"
 git clone https://github.com/srio/shadow3
 cd shadow3
 python setup.py build
-#pip install --no-deps -e . --no-binary :all:
-python setup.py develop
+pip install --no-deps -e . --no-binary :all:
+#python setup.py develop
 cd ..
 
 #srxraylib
@@ -106,8 +94,8 @@ git clone https://github.com/lucarebuffi/syned
 cd syned
 git checkout comsyl
 python setup.py build
-#pip install --no-deps -e . --no-binary :all:
-python setup.py develop
+pip install --no-deps -e . --no-binary :all:
+#python setup.py develop
 cd ..
 
 #wofry
@@ -115,8 +103,8 @@ echo "Installing Oasys dependency wofry"
 git clone https://github.com/lucarebuffi/wofry
 cd wofry
 python setup.py build
-#pip install --no-deps -e . --no-binary :all:
-python setup.py develop
+pip install --no-deps -e . --no-binary :all:
+#python setup.py develop
 cd ..
 
 #silx
@@ -142,7 +130,6 @@ cd orange-widget-core
 python setup.py build
 pip install . 
 cd ..
-
 
 
 #

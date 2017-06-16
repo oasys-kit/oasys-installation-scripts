@@ -35,20 +35,6 @@ echo "Installing Oasys dependency srwlib"
 git clone https://github.com/ochubar/SRW
 
 #
-# alternatively, download and unpack from Buzmakov's site
-#
-# TODO: This does not work
-#curl -O https://github.com/buzmakov/SRW/archive/feature/srw_lite_update.zip
-# TODO: Download manually (set the address in web browser)
-#cp ~/Downloads/SRW-feature-srw_lite_update.zip SRW.zip
-#unzip SRW.zip
-#rm SRW.zip
-#mv SRW-feature-srw_lite_update SRW
-#cd SRW/ext_lib
-#cp ~/Downloads/fftw-2.1.5.tar.gz .
-# TODO: Download manually from https://github.com/ochubar/SRW/blob/master/ext_lib/#fftw-2.1.5.tar.gz?raw=true
-
-#
 # build fftw
 #
 cd SRW/ext_lib
@@ -74,12 +60,12 @@ cd cpp/gcc
 cp Makefile Makefile.orig
 # Modify existing Makefile
 mv Makefile Makefile.tmp
-# comment existing PYFLAGS and PYPATH
-sed -i -e "s/^PYFLAGS/#PYFLAGS/" Makefile.tmp 
-sed -i -e "s/^PYPATH/#PYPATH/" Makefile.tmp
+# remove existing PYFLAGS and PYPATH
+sed -i -e "/^PYFLAGS/d" Makefile.tmp 
+sed -i -e "/^PYPATH/d" Makefile.tmp
 # add the correct python path, include and lib directories
 echo "PYPATH = `echo $HOME/OASYS_VE/oasys1env`" > Makefile
-echo "PYFLAGS = -I\$(PYPATH)/include/`ls $HOME/OASYS_VE/oasys1env/include/` -L\$(PYPATH)/lib/`ls $HOME/OASYS_VE/oasys1env/lib/`" >> Makefile
+echo "PYFLAGS = -I\$(PYPATH)/include/`ls $HOME/OASYS_VE/oasys1env/include/` -L\$(PYPATH)/lib/`echo $HOME/OASYS_VE/oasys1env/lib/`" >> Makefile
 cat Makefile.tmp >> Makefile
 rm Makefile.tmp
 # make (creates libsrw.a)

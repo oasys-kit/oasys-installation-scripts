@@ -16,7 +16,6 @@ print("numpy version:", numpy.__version__)
 import scipy
 print("scipy version:", scipy.__version__)
 
-import orangecanvas
 
 import matplotlib
 print("matplotlib version:", matplotlib.__version__)
@@ -30,4 +29,6 @@ import silx
 print("Silx version: ",silx.version)
 
 
+import orangecanvas
+import oasys
 
