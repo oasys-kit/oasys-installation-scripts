@@ -6,6 +6,10 @@
 #
 # srio@esrf.eu
 #
+# IMPORTANT: Run it from the virtual environment directory
+#
+#  ./Developer/install_srw_from_github.sh
+#
 #===============================================================================
 #
 #
