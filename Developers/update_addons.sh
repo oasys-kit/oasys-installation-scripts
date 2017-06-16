@@ -26,8 +26,7 @@ pip uninstall shadowOui
 rm -rf shadowOui 
 git clone https://github.com/lucarebuffi/shadowOui
 cd shadowOui
-python setup.py build
-# pip install -e . --no-deps --no-binary :all:
+pip install -e . --no-deps --no-binary :all:
 python setup.py develop
 cd ..
 
@@ -38,8 +37,7 @@ rm -rf pySRU
 git clone https://github.com/srio/und_sophie_2016 pySRU
 cd pySRU
 python setup.py build
-# pip install -e . --no-deps --no-binary :all:
-python setup.py develop
+pip install -e . --no-deps --no-binary :all:
 cd ..
 # 
 # xoppy
@@ -49,8 +47,7 @@ rm -rf xoppy
 git clone https://github.com/srio/Orange-XOPPY xoppy
 cd xoppy
 python setup.py build
-# pip install -e . --no-deps --no-binary :all:
-python setup.py develop
+pip install -e . --no-deps --no-binary :all:
 cd ..
 
 # # wise

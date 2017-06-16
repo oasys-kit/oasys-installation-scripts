@@ -1,5 +1,6 @@
 #!/bin/bash
 
+
 #===============================================================================
 #
 # script to install OASYS in a LINUX virtual environment in DEVELOPER mode 
@@ -61,7 +62,6 @@ pip uninstall -y setuptools
 pip install setuptools==34.3.0
 pip install scipy
 pip install matplotlib
-# pip install silx
 
 
 #
@@ -79,15 +79,13 @@ git clone https://github.com/srio/shadow3
 cd shadow3
 python setup.py build
 pip install --no-deps -e . --no-binary :all:
-#python setup.py develop
 cd ..
 
 #srxraylib
 echo "Installing Oasys dependency srxraylib"
 git clone https://github.com/lucarebuffi/srxraylib
 cd srxraylib
-#pip install --no-deps -e . --no-binary :all:
-python setup.py develop
+pip install --no-deps -e . --no-binary :all:
 cd ..
 
 #syned
@@ -97,7 +95,6 @@ cd syned
 git checkout comsyl
 python setup.py build
 pip install --no-deps -e . --no-binary :all:
-#python setup.py develop
 cd ..
 
 #wofry
@@ -106,32 +103,34 @@ git clone https://github.com/lucarebuffi/wofry
 cd wofry
 python setup.py build
 pip install --no-deps -e . --no-binary :all:
-#python setup.py develop
 cd ..
 
 #silx
 echo "Installing Oasys dependency silx"
-git clone https://github.com/silx-kit/silx
-cd silx
-python setup.py build
-pip install . 
-cd ..
+# git clone https://github.com/silx-kit/silx
+# cd silx
+# python setup.py build
+# pip install . 
+# cd ..
+pip install silx
 
 #orange-canvas
-echo "Installing Oasys dependency orange-canvas"
-git clone https://github.com/lucarebuffi/orange-canvas
-cd orange-canvas
+echo "Installing Oasys dependency oasys-canvas"
+git clone https://github.com/lucarebuffi/orange-canvas oasys-canvas
+cd oasys-canvas
 python setup.py build
 pip install . 
 cd ..
+#pip install oasys-canvas-core
 
 #orange-widget-core
-echo "Installing Oasys dependency orange-widget-core"
-git clone https://github.com/lucarebuffi/orange-widget-core
-cd orange-widget-core
+echo "Installing Oasys dependency oasys-widget-core"
+git clone https://github.com/lucarebuffi/orange-widget-core oasys-widget-core
+cd oasys-widget-core
 python setup.py build
 pip install . 
 cd ..
+#pip install oasys-widget-core
 
 
 #
@@ -143,5 +142,6 @@ cd oasys1
 python setup.py build
 python setup.py develop
 cd ..
+#pip install oasys1
 
 echo "All done. You can start Oasys using ../start_oasys.sh"
