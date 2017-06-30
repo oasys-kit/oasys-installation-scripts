@@ -30,7 +30,7 @@ cd ..
 #
 
 # proxy 
-export all_proxy=http://proxy.esrf.fr:3128/
+#export all_proxy=http://proxy.esrf.fr:3128/
 
 # clean old stuff
 echo "Cleaning old installation files..."
