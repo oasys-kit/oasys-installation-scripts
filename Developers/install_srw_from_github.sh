@@ -45,6 +45,7 @@ cd SRW/ext_lib
 rm -rf  fftw-2.1.5
 tar -zxvf fftw-2.1.5.tar.gz
 cd fftw-2.1.5
+export CC=$HOME/miniconda3/bin/cc
 ./configure --enable-float --with-pic
 cp Makefile Makefile.orig
 # add -fPIC option to CFLAGS in Makefile
@@ -65,10 +66,14 @@ cp Makefile Makefile.orig
 # Modify existing Makefile
 mv Makefile Makefile.tmp
 # remove existing PYFLAGS and PYPATH
+sed -i -e "/^CC/d" Makefile.tmp
+sed -i -e "/^CXX/d" Makefile.tmp
 sed -i -e "/^PYFLAGS/d" Makefile.tmp 
 sed -i -e "/^PYPATH/d" Makefile.tmp
 # add the correct python path, include and lib directories
-echo "PYPATH = `echo $HOME/OASYS_VE/oasys1env`" > Makefile
+echo "CC = `echo $HOME/miniconda3/bin/cc`" > Makefile
+echo "CXX = `echo $HOME/miniconda3/bin/c++`" >> Makefile
+echo "PYPATH = `echo $HOME/OASYS_VE/oasys1env`" >> Makefile
 echo "PYFLAGS = -I\$(PYPATH)/include/`ls $HOME/OASYS_VE/oasys1env/include/` -L\$(PYPATH)/lib/`echo $HOME/OASYS_VE/oasys1env/lib/`" >> Makefile
 cat Makefile.tmp >> Makefile
 rm Makefile.tmp
