@@ -10,7 +10,7 @@
 #   If any of these items is not present in your system, contact the
 #   system administrator and ask for their installation.     
 #
-# To be sure, run the script "prepare_installation.sh" as sudo.
+# To be sure, run the script "prepare_installation.sh".
 #
 # Then place this script in a suitable directory (e.g., $HOME/OASYS_VE) and run
 # this script automatically (it may take a very long time) or manually by
