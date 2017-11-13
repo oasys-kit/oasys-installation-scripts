@@ -47,6 +47,6 @@ $HOME/miniconda3/bin/conda install -c conda-forge xraylib=3.2.0
 #
 echo "Installing Oasys..."
 
-/miniconda3/bin/python3 -m pip install oasys1
+$HOME/miniconda3/bin/python3 -m pip install oasys1
 
 echo "All done. You can start Oasys using ../start_oasys.sh"
