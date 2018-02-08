@@ -20,6 +20,12 @@ cd ..
 # define python
 source oasys1env/bin/activate
 
+########################################################
+#
+# WOFRY
+#
+########################################################
+
 # oasys-syned
 echo "Installing oasys-syned add-on"
 pip uninstall oasys-syned
@@ -38,6 +44,12 @@ cd oasys-wofry
 pip install -e . --no-deps --no-binary :all:
 cd ..
 
+########################################################
+#
+# SRW
+#
+########################################################
+
 # wofrysrw 
 echo "Installing wofrysrw add-on"
 pip uninstall wofrysrw
@@ -53,6 +65,39 @@ pip uninstall oasys-srw
 rm -rf oasys-srw
 git clone https://github.com/lucarebuffi/oasys-srw
 cd oasys-srw
+pip install -e . --no-deps --no-binary :all:
+cd ..
+
+########################################################
+#
+# WISE
+#
+########################################################
+
+# wiselib
+echo "Installing Oasys add-on wiselib"
+pip uninstall wiselib
+rm -rf wiselib 
+git clone https://github.com/lucarebuffi/wiselib
+cd wiselib
+pip install -e . --no-deps --no-binary :all:
+cd ..
+
+# wofrywise
+echo "Installing Oasys add-on wofrywise"
+pip uninstall wofrywise
+rm -rf wofrywise 
+git clone https://github.com/lucarebuffi/wofrywise
+cd wofrywise
+pip install -e . --no-deps --no-binary :all:
+cd ..
+
+# wise
+echo "Installing Oasys add-on wise"
+pip uninstall wise
+rm -rf wise 
+git clone https://github.com/lucarebuffi/WISE.git wise
+cd wise
 pip install -e . --no-deps --no-binary :all:
 cd ..
 

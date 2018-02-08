@@ -20,6 +20,15 @@ cd ..
 # define python
 source oasys1env/bin/activate
 
+# wofryshadow
+echo "Installing Oasys add-on wofryshadow"
+pip uninstall wofryshadow
+rm -rf wofryshadow 
+git clone https://github.com/srio/wofryshadow
+cd wofryshadow
+pip install -e . --no-deps --no-binary :all:
+cd ..
+
 # shadowOui
 echo "Installing Oasys add-on shadowOui"
 pip uninstall shadowOui
@@ -39,8 +48,10 @@ cd pySRU
 python setup.py build
 pip install -e . --no-deps --no-binary :all:
 cd ..
-# 
+
 # xoppy
+
+##todo install oasys1-srwlib
 echo "Installing Oasys add-on xoppy"
 pip uninstall xoppy
 rm -rf xoppy 
@@ -50,22 +61,4 @@ python setup.py build
 pip install -e . --no-deps --no-binary :all:
 cd ..
 
-# # wise
-# echo "Installing Oasys add-on wise"
-# pip uninstall wise
-# rm -rf wise 
-# git clone https://github.com/lucarebuffi/WISE.git wise
-# cd wise
-# pip install -e . --no-deps --no-binary :all:
-# cd ..
-# 
-# # xrayserver
-# echo "Installing Oasys add-on xrayserver"
-# pip uninstall xrayserver
-# rm -rf xrayserver 
-# git clone https://github.com/lucarebuffi/XRayServer xrayserver
-# cd xrayserver
-# pip install -e . --no-deps --no-binary :all:
-# cd ..
-# 
 echo "All done. You can start Oasys with new add-ons using ../start_oasys.sh"
