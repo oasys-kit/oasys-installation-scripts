@@ -18,13 +18,15 @@
 
 cd ..
 # define python
-source oasys1env/bin/activate
+source ~/.bashrc
+
+pip install h5py
 
 # wofryshadow
 echo "Installing Oasys add-on wofryshadow"
 pip uninstall wofryshadow
 rm -rf wofryshadow 
-git clone https://github.com/srio/wofryshadow
+git clone https://github.com/oasys-kit/wofryshadow
 cd wofryshadow
 pip install -e . --no-deps --no-binary :all:
 cd ..
@@ -33,19 +35,17 @@ cd ..
 echo "Installing Oasys add-on shadowOui"
 pip uninstall shadowOui
 rm -rf shadowOui 
-git clone https://github.com/lucarebuffi/shadowOui
+git clone https://github.com/oasys-kit/shadowOui
 cd shadowOui
-pip install -e . --no-deps --no-binary :all:
-python setup.py develop
+python setup.py sdist develop
 cd ..
 
 # pySRU (needed in xoppy)
 echo "Installing pySRU"
 pip uninstall pySRU
 rm -rf pySRU 
-git clone https://github.com/srio/und_sophie_2016 pySRU
+git clone https://github.com/oasys-kit/pySRU
 cd pySRU
-python setup.py build
 pip install -e . --no-deps --no-binary :all:
 cd ..
 
@@ -55,9 +55,8 @@ cd ..
 echo "Installing Oasys add-on xoppy"
 pip uninstall xoppy
 rm -rf xoppy 
-git clone https://github.com/srio/Orange-XOPPY xoppy
+git clone https://github.com/oasys-kit/xoppy
 cd xoppy
-python setup.py build
 pip install -e . --no-deps --no-binary :all:
 cd ..
 

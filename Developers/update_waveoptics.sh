@@ -18,7 +18,8 @@
 
 cd ..
 # define python
-source oasys1env/bin/activate
+#source oasys1env/bin/activate
+source ~/.bashrc
 
 ########################################################
 #
@@ -28,18 +29,18 @@ source oasys1env/bin/activate
 
 # oasys-syned
 echo "Installing oasys-syned add-on"
-pip uninstall oasys-syned
+pip uninstall oasys1-syned
 rm -rf oasys-syned
-git clone https://github.com/lucarebuffi/oasys-syned
+git clone https://github.com/oasys-kit/oasys-syned
 cd oasys-syned
 pip install -e . --no-deps --no-binary :all:
 cd ..
 
 # oasys-wofry
 echo "Installing oasys-wofry add-on"
-pip uninstall oasys-wofry
+pip uninstall oasys1-wofry
 rm -rf oasys-wofry
-git clone https://github.com/lucarebuffi/oasys-wofry
+git clone https://github.com/oasys-kit/oasys-wofry
 cd oasys-wofry
 pip install -e . --no-deps --no-binary :all:
 cd ..
@@ -54,18 +55,19 @@ cd ..
 echo "Installing wofrysrw add-on"
 pip uninstall wofrysrw
 rm -rf wofrysrw
-git clone https://github.com/lucarebuffi/wofrysrw
+git clone https://github.com/oasys-kit/wofrysrw
 cd wofrysrw
 pip install -e . --no-deps --no-binary :all:
 cd ..
 
 # oasys-srw 
 echo "Installing oasys-srw add-on"
-pip uninstall oasys-srw
+pip uninstall oasys1-srw
 rm -rf oasys-srw
-git clone https://github.com/lucarebuffi/oasys-srw
+git clone https://github.com/oasys-kit/oasys-srw
 cd oasys-srw
-pip install -e . --no-deps --no-binary :all:
+#pip install -e . --no-deps --no-binary :all:
+python setup.py sdist develop
 cd ..
 
 ########################################################
@@ -94,7 +96,7 @@ cd ..
 
 # wise
 echo "Installing Oasys add-on wise"
-pip uninstall wise
+pip uninstall oasys1-wise
 rm -rf wise 
 git clone https://github.com/lucarebuffi/WISE.git wise
 cd wise
