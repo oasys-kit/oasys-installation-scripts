@@ -70,7 +70,7 @@ cp src/.libs/libxrl.so* ~/oasys1env/lib/xraylib
 
 cd ..
 
-#rm -fR xraylib-3.3.0*
+rm -fR xraylib-3.3.0*
 
 #
 # step 4 install oasys
