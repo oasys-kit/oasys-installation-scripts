@@ -1,0 +1,10 @@
+libprdata_la-xrayglob.lo: xrayglob.c /usr/include/stdc-predef.h \
+ ../include/xraylib-defs.h xrayglob.h xrayvars.h
+
+/usr/include/stdc-predef.h:
+
+../include/xraylib-defs.h:
+
+xrayglob.h:
+
+xrayvars.h:

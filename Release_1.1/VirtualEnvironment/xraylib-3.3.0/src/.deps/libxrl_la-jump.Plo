@@ -1,0 +1,32 @@
+libxrl_la-jump.lo: jump.c /usr/include/stdc-predef.h xrayglob.h \
+ xrayvars.h ../include/xraylib-defs.h ../include/xraylib.h \
+ ../include/xraylib-shells.h ../include/xraylib-lines.h \
+ ../include/xraylib-parser.h ../include/xraylib-auger.h \
+ ../include/xraylib-crystal-diffraction.h ../include/xraylib-defs.h \
+ ../include/xraylib-nist-compounds.h ../include/xraylib-radionuclides.h
+
+/usr/include/stdc-predef.h:
+
+xrayglob.h:
+
+xrayvars.h:
+
+../include/xraylib-defs.h:
+
+../include/xraylib.h:
+
+../include/xraylib-shells.h:
+
+../include/xraylib-lines.h:
+
+../include/xraylib-parser.h:
+
+../include/xraylib-auger.h:
+
+../include/xraylib-crystal-diffraction.h:
+
+../include/xraylib-defs.h:
+
+../include/xraylib-nist-compounds.h:
+
+../include/xraylib-radionuclides.h:

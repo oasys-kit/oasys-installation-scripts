@@ -56,16 +56,21 @@ tar xvfz xraylib-3.3.0.tar.gz
 cd xraylib-3.3.0
 ./configure --enable-python --enable-python-integration PYTHON=`which python`
 make
-export PYTHON_SITE_PACKAGES=`python -c "from distutils.sysconfig import get_python_lib; print(get_python_lib())"`
 
+export PYTHON_SITE_PACKAGES=`python -c "from distutils.sysconfig import get_python_lib; print(get_python_lib())"`
 echo $PYTHON_SITE_PACKAGES
+
 cp python/.libs/_xraylib*.so  $PYTHON_SITE_PACKAGES
 cp python/xrayhelp.py $PYTHON_SITE_PACKAGES
 cp python/xraylib.py $PYTHON_SITE_PACKAGES
 cp python/xraymessages.py  $PYTHON_SITE_PACKAGES
+
+mkdir ~/oasys1env/lib/xraylib
+cp src/.libs/libxrl.so* ~/oasys1env/lib/xraylib
+
 cd ..
 
-rm -fR xraylib-3.3.0*
+#rm -fR xraylib-3.3.0*
 
 #
 # step 4 install oasys

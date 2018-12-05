@@ -1,0 +1,13 @@
+libxrl_la-xrayglob_inline.lo: xrayglob_inline.c \
+ /usr/include/stdc-predef.h ../include/xraylib-defs.h xrayglob.h \
+ xrayvars.h /usr/lib/gcc/x86_64-linux-gnu/7/include/stddef.h
+
+/usr/include/stdc-predef.h:
+
+../include/xraylib-defs.h:
+
+xrayglob.h:
+
+xrayvars.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/7/include/stddef.h:

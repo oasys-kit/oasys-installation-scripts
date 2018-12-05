@@ -1,0 +1,33 @@
+libxrl_la-auger_trans.lo: auger_trans.c /usr/include/stdc-predef.h \
+ ../include/xraylib.h ../include/xraylib-shells.h \
+ ../include/xraylib-lines.h ../include/xraylib-parser.h \
+ ../include/xraylib-auger.h ../include/xraylib-crystal-diffraction.h \
+ ../include/xraylib-defs.h ../include/xraylib-nist-compounds.h \
+ ../include/xraylib-radionuclides.h xrayvars.h ../include/xraylib-defs.h \
+ xrayglob.h
+
+/usr/include/stdc-predef.h:
+
+../include/xraylib.h:
+
+../include/xraylib-shells.h:
+
+../include/xraylib-lines.h:
+
+../include/xraylib-parser.h:
+
+../include/xraylib-auger.h:
+
+../include/xraylib-crystal-diffraction.h:
+
+../include/xraylib-defs.h:
+
+../include/xraylib-nist-compounds.h:
+
+../include/xraylib-radionuclides.h:
+
+xrayvars.h:
+
+../include/xraylib-defs.h:
+
+xrayglob.h:

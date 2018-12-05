@@ -1,0 +1,45 @@
+Some info on how we have built the Windows package:
+
+We use two separate Windows 7 64-bit VirtualBox VMs, one with 32-bit versions of GCC, and a second one with 64-bit counterparts of these. All work is done using a MSYS shell. In both cases the GCC compilers were packaged by the TDM-GCC project.
+
+Compilation starts out as on Linux/Mac OS X...
+
+  ./configure && make
+
+... followed by:
+
+  make windows
+
+followed by running InnoSetup to create the installer package.
+
+This procedure is heavily adapted to my own directory layout and will require considerable changes to get it working on your system.
+
+
+.NET bindings
+=============
+
+The .NET Framework can be installed on computers running Microsoft Windows operating systems. It supports multiple programming languages, including C#, VB.NET, C++/CLI, Pascal, Fortran and includes a large class library for that solves many common programming problems. These bindings have been compiled using the free Visual Studio Community 2015 IDE from Microsoft (https://www.visualstudio.com/en-us/products/visual-studio-community-vs.aspx) and was built against .NET Framework Version 4. The binding consists of a single, mixed-mode assembly XrayLib.NET.dll written in C++/CLI. The assembly provides the interop between a managed XrayLib class and the native functions and types exposed by libxrl-7.dll. This combines the language interoperability of .NET with the performance of the native underlying functions. A pre-built Release version of the assembly and an example program can be found in the bin folder together with a HTML Help v1 file.
+
+To use XrayLib.NET.dll in Visual Studio:
+
+1)     Right-click on your project in the Solution Explorer
+
+2)     Click the References... menu item
+
+3)     Click the Add New Reference... button in the dialog box
+
+4)     Click the Browse tab of the Add Reference dialog box
+
+5)     Navigate to the xraylib Lib folder and select the XrayLib.NET.dll file
+
+6)     Click the OK buttons to add the assembly reference and close the dialog boxes
+
+7)     Assuming you are using C#, add the following line to the top of your source code file
+
+using Science;
+
+8)     To create a instance of the XrayLib class that provides access to the XrayLib functionality, use the make the following call
+
+XrayLib xl = XrayLib.Instance;
+
+The class uses the static property Instance to implement a singleton pattern so that only a single instance of the XrayLib class is created and can be used throughout your program.  
