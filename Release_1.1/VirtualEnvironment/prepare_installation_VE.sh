@@ -3,6 +3,11 @@
 echo "INSTALLING OASYS ON "
 echo `lsb_release -rs`
 
+sudo apt-get update
+sudo apt-get install python3-pip
+sudo apt-get install curl
+sudo apt-get install libtool
+
 sudo python3 -m pip install pip --upgrade
 sudo python3 -m pip install virtualenv --upgrade
 sudo python3 -m pip install pyqt5 --upgrade
