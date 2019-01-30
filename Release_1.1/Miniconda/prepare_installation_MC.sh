@@ -8,8 +8,6 @@ echo "INSTALLING OASYS ON "
 echo `lsb_release -rs`
 
 $HOME/miniconda3/bin/conda install pip
-$HOME/miniconda3/bin/conda install virtualenv
-$HOME/miniconda3/bin/conda install -c defaults pyqt=5 qt
 
 # SCIPY
 sudo apt-get -y install libblas-dev liblapack-dev libatlas-base-dev gfortran
@@ -20,7 +18,10 @@ sudo apt-get -y install libfreetype6 libfreetype6-dev
 # XRAYLIB
 sudo apt-get -y install swig
 
-
-source ~/.bashrc
-
+$HOME/miniconda3/bin/python3 -m pip install numpy --upgrade
+$HOME/miniconda3/bin/python3 -m pip install scipy --upgrade
+$HOME/miniconda3/bin/python3 -m pip install matplotlib --upgrade
+$HOME/miniconda3/bin/python3 -m pip install sip --upgrade
+$HOME/miniconda3/bin/python3 -m pip install PyQt5 --upgrade
+$HOME/miniconda3/bin/python3 -m pip install PyQt5-sip --upgrade
 

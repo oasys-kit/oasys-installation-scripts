@@ -32,9 +32,7 @@
 
 # xraylib
 echo "Installing Oasys dependency xraylib"
-$HOME/miniconda3/bin/conda install numpy
 $HOME/miniconda3/bin/conda install -c conda-forge xraylib=3.3.0
-
 
 #
 # step 4 install oasys
