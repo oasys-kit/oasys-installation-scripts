@@ -27,7 +27,7 @@ pip install vinyl-srw
 
 
 REM 
-REM  install xraylib
+REM  install xraylib (to do: answer yes)
 REM 
 
 conda install -c conda-forge xraylib=3.3.0
@@ -59,7 +59,7 @@ cd ..
 
 
 REM 
-REM  shadow  
+REM  shadow  (to do: be sure that continue...)
 REM 
 
 git clone https://github.com/panosc-vinyl/shadow3
@@ -70,7 +70,7 @@ cd ..
 pip install wofryshadow --no-deps
 
 git clone https://github.com/panosc-vinyl/shadowOui
-cd vinyl/shadowOui
+cd shadowOui
 pip install . --no-deps
 cd ..
 
