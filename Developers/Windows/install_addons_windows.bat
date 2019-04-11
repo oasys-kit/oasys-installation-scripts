@@ -1,41 +1,41 @@
-%
-% Before using this bat file, Oasys must be installed (see install_oasys_windows.bat) 
-% try: python -m oasys.canvas -l4 --force-discovery
-% Oasys should start (with no add-ons)
-%
-%
-% ** IMPORTANT: DO NOT USE THE ADD-ONS MENU IN THE OASYS MENU -- DO NOT UPGRADE ADDONS USING THE OASYS MENU ***
-%
+REM 
+REM  Before using this bat file, Oasys must be installed (see install_oasys_windows.bat) 
+REM  try: python -m oasys.canvas -l4 --force-discovery
+REM  Oasys should start (with no add-ons)
+REM 
+REM 
+REM  ** IMPORTANT: DO NOT USE THE ADD-ONS MENU IN THE OASYS MENU -- DO NOT UPGRADE ADDONS USING THE OASYS MENU ***
+REM 
 
 
-%
-% install manually add-ons [check each one before continuing...]
-%
+REM 
+REM  install manually add-ons [check each one before continuing...]
+REM 
 
 
-%
-% syned and wofry widgets
-%
+REM 
+REM  syned and wofry widgets
+REM 
 pip install oasys1-syned --no-deps
 pip install oasys1-wofry --no-deps
 
 
-%
-% install srwlib
-%
+REM 
+REM  install srwlib
+REM 
 pip install vinyl-srw
 
 
-%
-% install xraylib
-%
+REM 
+REM  install xraylib
+REM 
 
 conda install -c conda-forge xraylib=3.3.0
 
 
-%
-% install xoppy
-%
+REM 
+REM  install xoppy
+REM 
 pip install pySRU
 
 git clone https://github.com/panosc-vinyl/xoppy
@@ -43,9 +43,9 @@ cd xoppy
 pip install . --no-deps
 cd ..
 
-%
-% install srw
-%
+REM 
+REM  install srw
+REM 
 
 git clone https://github.com/panosc-vinyl/wofrysrw
 cd wofrysrw
@@ -58,9 +58,9 @@ pip install . --no-deps
 cd ..
 
 
-%
-% shadow  
-%
+REM 
+REM  shadow  
+REM 
 
 git clone https://github.com/panosc-vinyl/shadow3
 cd shadow3
@@ -75,20 +75,20 @@ pip install . --no-deps
 cd ..
 
 
-%
-% wiser
-%
+REM 
+REM  wiser
+REM 
 
 pip install wiselib2 --no-deps
 pip install wofrywise2 --no-deps
 pip install oasys1-wiser --no-deps
 
-%
-% start Oasys using:
-% python -m oasys.canvas -l4 --force-discovery
-%
+REM 
+REM  start Oasys using:
+REM  python -m oasys.canvas -l4 --force-discovery
+REM 
 
-%
+REM 
 
 
 
