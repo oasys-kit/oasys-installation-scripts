@@ -59,13 +59,10 @@ cd ..
 
 
 REM 
-REM  shadow  (to do: be sure that continue...)
+REM  shadow 
 REM 
 
-git clone https://github.com/panosc-vinyl/shadow3
-cd shadow3
-install_python_bind.bat
-cd ..
+pip install shadow3 --no-deps
 
 pip install wofryshadow --no-deps
 
