@@ -63,13 +63,8 @@ REM  shadow
 REM 
 
 pip install shadow3 --no-deps
-
 pip install wofryshadow --no-deps
-
-git clone https://github.com/panosc-vinyl/shadowOui
-cd shadowOui
-pip install . --no-deps
-cd ..
+pip install oasys1-shadowoui  --no-deps
 
 
 REM 
