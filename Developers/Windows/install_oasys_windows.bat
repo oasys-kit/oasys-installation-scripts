@@ -9,34 +9,14 @@ pip install hdf5plugin
 pip install silx
 
 
-mkdir soft-conda
-cd soft-conda
-
-
-git clone https://github.com/panosc-vinyl/orange-canvas
-cd orange-canvas
-pip install .
-cd ..
-
-
-
-git clone https://github.com/panosc-vinyl/orange-widget-core
-cd orange-widget-core
-pip install .
-cd ..
-
 pip install srxraylib
 pip install syned
 pip install wofry
 
+pip install oasys-canvas-core
+pip install oasys-widget-core
 
-
-git clone https://github.com/panosc-vinyl/oasys1
-cd oasys1
-pip install . --no-deps
-cd ..
-
-
+pip install oasys1
 
 
 
