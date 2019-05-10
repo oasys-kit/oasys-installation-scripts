@@ -31,9 +31,8 @@ REM
 REM   try: python -m oasys.canvas -l4 --force-discovery
 REM   Oasys should start (with no add-ons)
 REM 
-REM  If it works, use the install_addons_windows.bat file to install manually the addons
-REM 
-REM  ** IMPORTANT: DO NOT USE THE ADD-ONS MENU IN THE OASYS MENU -- DO NOT UPGRADE ADDONS USING THE OASYS MENU ***
+REM  Use the Optioons->AddOns to install the addons from the Oasys menu bar
+
 
 
 
