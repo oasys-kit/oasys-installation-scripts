@@ -21,11 +21,8 @@ export PYTHON_SITE_PACKAGES=`python -c "from distutils.sysconfig import get_pyth
 
 echo "Cleaning old installation files..."
 rm -rf xraylib
-rm $PYTHON_SITE_PACKAGES/xrayhelp.py
-rm $PYTHON_SITE_PACKAGES/xraylib.py
-rm $PYTHON_SITE_PACKAGES/xraylib_np.so
-rm $PYTHON_SITE_PACKAGES/_xraylib.so
-rm $PYTHON_SITE_PACKAGES/xraymessages.py
+rm $PYTHON_SITE_PACKAGES/xray*.py
+
 
 # xraylib
 echo "Installing Oasys dependency xraylib"
@@ -36,11 +33,11 @@ git clone https://github.com/tschoonj/xraylib
 cd xraylib
 autoreconf -i 
 
-./configure --enable-python --enable-python-integration PYTHON=`which python`
+./configure --enable-python --enable-python-integration PYTHON=`which python` --disable-libxrl
 make
-cp python/xrayhelp.py $PYTHON_SITE_PACKAGES 
 cp python/xraylib.py $PYTHON_SITE_PACKAGES 
-cp python/.libs/_xraylib*.so  $PYTHON_SITE_PACKAGES
-cp python/xraymessages.py  $PYTHON_SITE_PACKAGES 
+cp python/.libs/*.so  $PYTHON_SITE_PACKAGES
+cp src/.libs/*.dylib  # for mac
+cp src/.libs/*.so  # for linux
 cd ..
 echo "All done for xraylib. "
