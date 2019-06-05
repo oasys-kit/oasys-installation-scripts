@@ -12,9 +12,9 @@ pip install hdf5plugin
 pip install silx
 
 
-#pip install srxraylib
+REM pip install srxraylib
 
-# for the moment oasys1-srwpy 1.0.2 is not available for windows, so use older version
+REM  for the moment oasys1-srwpy 1.0.2 is not available for windows, so use older version
 
 pip install https://files.pythonhosted.org/packages/08/6e/34d810ca5acfbab9850ed887dc9362683f4dc895aa9e7da543d7a072d121/oasys_srwpy-1.0.0-cp37-cp37m-win_amd64.whl
 
