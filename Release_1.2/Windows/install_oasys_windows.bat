@@ -3,28 +3,12 @@
 REM  install Anaconda 2018.2 in C:\anaconda3 (without VS, without PATH)
 REM  Start->Anaconda3->Anaconda-Prompt
 
-pip install numpy==1.16.0
 
-pip install pyqt5==5.11.3
-
-pip install hdf5plugin
-
-pip install silx
-
-
-pip install srxraylib
-
-pip install syned
-
-pip install wofry
-
-pip install oasys-canvas-core
-
-pip install oasys-widget-core
+conda install -c conda-forge xraylib=3.3.0
 
 pip install oasys1
 
-conda install -c conda-forge xraylib=3.3.0
+
 
 
 REM 
