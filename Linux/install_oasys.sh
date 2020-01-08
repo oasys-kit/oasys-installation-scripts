@@ -1,6 +1,7 @@
 #!/bin/bash
 
 type git >/dev/null 2>&1 || ./check_git.sh
+type git >/dev/null 2>&1 || exit 1
 
 minicondadir=$HOME/miniconda3
 
@@ -13,17 +14,23 @@ minicondadir=$HOME/miniconda3
     else
         rm -fR $minicondadir
     fi
-}
+} || echo "Miniconda 3 not previously installed"
+
+if [ $? -eq 0 ]; then echo ""; else exit 1; fi
 
 wget https://repo.continuum.io/miniconda/Miniconda3-4.7.12.1-Linux-x86_64.sh
 chmod +x Miniconda3-4.7.12.1-Linux-x86_64.sh
 ./Miniconda3-4.7.12.1-Linux-x86_64.sh
 
-cd $minicondadir/bin
+if [ $? -eq 0 ]; then echo "Miniconda 3 installed. Installing Oasys"; else exit 1; fi
+
+cd $minicondadir/bin || exit 1
 ./python -m pip install pip --upgrade
 ./conda install -c conda-forge xraylib=3.3.0
 ./python -m pip install oasys1
-cd -
+cd - || exit 1
+
+if [ $? -eq 0 ]; then echo "Oasys installed. Launching Oasys"; else exit 1; fi
 
 ./start_oasys.sh
 
