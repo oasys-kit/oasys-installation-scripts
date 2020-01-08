@@ -15,7 +15,7 @@ minicondadir=$HOME/miniconda3
     fi
 }
 
-wget -O https://repo.continuum.io/miniconda/Miniconda3-4.7.12.1-Linux-x86_64.sh
+wget https://repo.continuum.io/miniconda/Miniconda3-4.7.12.1-Linux-x86_64.sh
 chmod +x Miniconda3-4.7.12.1-Linux-x86_64.sh
 ./Miniconda3-4.7.12.1-Linux-x86_64.sh
 
