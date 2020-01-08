@@ -10,4 +10,5 @@ CUR_PATH=$(pwd)
 echo "Icon=$CUR_PATH/oasys.png" >> /usr/share/applications/Oasys.desktop
 echo "Exec=$CUR_PATH/start_oasys.sh" >> /usr/share/applications/Oasys.desktop
 
+echo "Created Desktop Application: /usr/share/applications/Oasys.desktop"
 
