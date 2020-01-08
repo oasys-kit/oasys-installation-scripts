@@ -1,6 +1,6 @@
 #!/bin/bash
 
-type git >/dev/null 2>&1 || echo "Git command is missing! Installation requires sudo grants." ; sudo ./check_git.sh
+type git >/dev/null 2>&1 || ./check_git.sh
 
 read -p "Delete or Rename previous Miniconda3 installation? ([D]/r)" -n 1 -r
 echo    # (optional) move to a new line
