@@ -1,8 +1,8 @@
 #!/bin/bash
 
-type git >/dev/null 2>&1 || sudo ./check_git.sh
+type git >/dev/null 2>&1 || echo "Git command is missing! Installation requires sudo grants." ; sudo ./check_git.sh
 
-read -p "Delete or Rename previous Miniconda3 installation ? [D/r]" -n 1 -r
+read -p "Delete or Rename previous Miniconda3 installation? ([D]/r)" -n 1 -r
 echo    # (optional) move to a new line
 if [[ $REPLY =~ ^[Rr]$ ]]
 then
@@ -23,4 +23,12 @@ cd -
 
 $HOME/miniconda3/bin/python -m oasys.canvas
 
-sudo ./create_desktop_application.sh
+read -p "Create Desktop Application (requires sudo grants)? ([Y]/n)" -n 1 -r
+echo    # (optional) move to a new line
+if [[ $REPLY =~ ^[Nn]$ ]]
+then
+  echo "Installation completed"
+else
+  sudo ./create_desktop_application.sh
+  echo "Installation completed"
+fi
