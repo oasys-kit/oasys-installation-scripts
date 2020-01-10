@@ -48,6 +48,8 @@ Miniconda3-4.7.12.1-Windows-x86_64.exe
 
 :install_oasys
 
+echo Installing Oasys...
+
 start /wait /b cmd /c %cd%\aux_bin\create_oasys_icon.bat
 start /wait /b cmd /c %cd%\aux_bin\install_libraries.bat
 
