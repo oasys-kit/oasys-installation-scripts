@@ -6,7 +6,7 @@ setlocal enableDelayedExpansion
 if exist "C:%HOMEPATH%\Miniconda3" (
     echo Miniconda distribution found
 
-    set /p "user_decision=[r]ename, [d]elete or [l]eave it?>"
+    set /p "user_decision=[r]ename, [d]elete or [k]eep it?> [d]"
     
     if /I "!user_decision!"=="d" (
         echo Deleting existing Miniconda ...
@@ -17,11 +17,11 @@ if exist "C:%HOMEPATH%\Miniconda3" (
             rename "C:%HOMEPATH%\Miniconda3" Miniconda3_!td!
             echo Existing Miniconda renamed to Miniconda3_!td!
         ) else (
-	    if /I "!user_decision!"=="l" (
+	    if /I "!user_decision!"=="k" (
                 goto install_oasys
             ) else (
-		echo Deleting existing Miniconda ...
-        	rmdir /S /Q "C:%HOMEPATH%\Miniconda3" 
+		        echo Deleting existing Miniconda ...
+        	    rmdir /S /Q "C:%HOMEPATH%\Miniconda3"
             )
         )
     )
@@ -54,11 +54,11 @@ start /wait /b cmd /c %cd%\aux_bin\install_libraries.bat
 start /wait /b cmd /c %cd%\aux_bin\create_oasys_icon.bat
 
 if exist "%cd%\Miniconda3-4.7.12.1-Windows-x86_64.exe" (
-    set /p "user_decision=Do you want to [d]elete or [l]eave Miniconda installer?>"
+    set /p "user_decision=Do you want to [d]elete or [k]eep Miniconda installer?> [k]"
     if /I "!user_decision!"=="d" (
         del /s Miniconda3-4.7.12.1-Windows-x86_64.exe
     ) else (
-        echo Installer left in folder %cd%
+        echo Installer kept in folder %cd%
     )
 )
 
