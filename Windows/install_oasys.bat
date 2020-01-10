@@ -14,8 +14,8 @@ if exist "C:%HOMEPATH%\Miniconda3" (
     ) else (
 	if /I "!user_decision!"=="r" (
             for /f "tokens=*" %%a in ('powershell get-date -format "{yyyy-MM-dd_HH.mm.ss}"') do set td=%%a
-            echo Renaming existing Miniconda to Miniconda3_%td%
-            rename "C:%HOMEPATH%\Miniconda3" Miniconda3_%td%
+            echo Renaming existing Miniconda to Miniconda3_!td!
+            rename "C:%HOMEPATH%\Miniconda3" Miniconda3_!td!
         ) else (
 	    if /I "!user_decision!"=="l" (
                 goto install_oasys
