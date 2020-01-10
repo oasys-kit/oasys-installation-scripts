@@ -53,6 +53,13 @@ echo Installing Oasys...
 start /wait /b cmd /c %cd%\aux_bin\install_libraries.bat
 start /wait /b cmd /c %cd%\aux_bin\create_oasys_icon.bat
 
+set /p "user_decision=Do you want to [d]elete or [l]eave Miniconda installer?>"
+if /I "!user_decision!"=="d" (
+    del /s Miniconda3-4.7.12.1-Windows-x86_64.exe
+) else (
+    echo Installer left in folder %cd%
+)
+
 echo --------------------------------------------------------------
 echo Oasys installation completed!
 echo Double click the icon in the Desktop to run the program"
