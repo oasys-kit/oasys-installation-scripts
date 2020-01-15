@@ -38,7 +38,7 @@ cd - || exit 1
 
 if [ $? -eq 0 ]; then echo "Oasys installed. Launching Oasys"; else exit 1; fi
 
-./start_oasys.sh
+./aux_bin/start_oasys.sh
 
 read -p "Create Desktop Application (requires sudo grants)? ([Y]/n)" -n 1 -r
 echo    # (optional) move to a new line
