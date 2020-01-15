@@ -7,7 +7,7 @@ echo "Name=Oasys" >> /usr/share/applications/Oasys.desktop
 
 CUR_PATH=$1
 
-echo "Icon=$CUR_PATH/oasys.png" >> /usr/share/applications/Oasys.desktop
+echo "Icon=$CUR_PATH/aux_bin/oasys.png" >> /usr/share/applications/Oasys.desktop
 echo "Exec=$CUR_PATH/start_oasys.sh" >> /usr/share/applications/Oasys.desktop
 
 echo "/usr/share/applications/Oasys.desktop created"
