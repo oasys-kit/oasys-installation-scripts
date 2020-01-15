@@ -5,7 +5,7 @@ echo "Type=Application" >> /usr/share/applications/Oasys.desktop
 echo "Terminal=false" >> /usr/share/applications/Oasys.desktop
 echo "Name=Oasys" >> /usr/share/applications/Oasys.desktop
 
-CUR_PATH=$(pwd)
+CUR_PATH=$1
 
 echo "Icon=$CUR_PATH/oasys.png" >> /usr/share/applications/Oasys.desktop
 echo "Exec=$CUR_PATH/start_oasys.sh" >> /usr/share/applications/Oasys.desktop

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-type git >/dev/null 2>&1 || ./check_git.sh
+type git >/dev/null 2>&1 || ./aux_bin/check_git.sh
 type git >/dev/null 2>&1 || exit 1
 
 minicondadir=$HOME/miniconda3
@@ -18,8 +18,14 @@ minicondadir=$HOME/miniconda3
 
 if [ $? -eq 0 ]; then echo ""; else exit 1; fi
 
-wget https://repo.continuum.io/miniconda/Miniconda3-4.7.12.1-Linux-x86_64.sh
-chmod +x Miniconda3-4.7.12.1-Linux-x86_64.sh
+if test -f "Miniconda3-4.7.12.1-Linux-x86_64.sh"; then
+    echo "Miniconda Installer already downloaded"
+else
+  echo "Downloading Miniconda Installer ..."
+  wget https://repo.continuum.io/miniconda/Miniconda3-4.7.12.1-Linux-x86_64.sh
+  chmod +x Miniconda3-4.7.12.1-Linux-x86_64.sh
+fi
+
 ./Miniconda3-4.7.12.1-Linux-x86_64.sh
 
 if [ $? -eq 0 ]; then echo "Miniconda 3 installed. Installing Oasys"; else exit 1; fi
@@ -40,6 +46,8 @@ if [[ $REPLY =~ ^[Nn]$ ]]
 then
   echo "Installation completed"
 else
-  sudo ./create_desktop_application.sh
+  CUR_PATH=$(pwd)
+
+  sudo ./aux_bin/create_desktop_application.sh $CUR_PATH
   echo "Installation completed"
 fi
