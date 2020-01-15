@@ -5,10 +5,10 @@ echo "Type=Application" >> /usr/share/applications/Oasys.desktop
 echo "Terminal=false" >> /usr/share/applications/Oasys.desktop
 echo "Name=Oasys" >> /usr/share/applications/Oasys.desktop
 
-CUR_PATH=$1
+AUX_PATH=$1
 
-echo "Icon=$CUR_PATH/aux_bin/oasys.png" >> /usr/share/applications/Oasys.desktop
-echo "Exec=$CUR_PATH/aux_bin/start_oasys.sh" >> /usr/share/applications/Oasys.desktop
+echo "Icon=$AUX_PATH/oasys.png" >> /usr/share/applications/Oasys.desktop
+echo "Exec=$AUX_PATH/start_oasys.sh" >> /usr/share/applications/Oasys.desktop
 
 echo "/usr/share/applications/Oasys.desktop created"
 
