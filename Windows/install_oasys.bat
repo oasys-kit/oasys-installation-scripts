@@ -3,6 +3,9 @@
 type nul>nul
 setlocal enableDelayedExpansion
 
+REM sometimes the HOMEPATH Variable is broken: must be set here correctly
+REM set HOMEPATH=\Users\<user name>
+
 if exist "C:%HOMEPATH%\Miniconda3" (
     echo Miniconda distribution found
 
