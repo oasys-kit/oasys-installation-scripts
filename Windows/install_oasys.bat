@@ -36,18 +36,18 @@ if exist "C:%HOMEPATH%\Miniconda3" (
 
 :install_miniconda
 
-if exist "%cd%\Miniconda3-4.7.12.1-Windows-x86_64.exe" (
+if exist "%cd%\Miniconda3-py37_4.8.2-Windows-x86_64.exe" (
     echo Miniconda Installer already downloaded
 ) else (
     echo Downloading Miniconda Installer ...
-    powershell -Command Invoke-WebRequest https://repo.continuum.io/miniconda/Miniconda3-4.7.12.1-Windows-x86_64.exe -O Miniconda3-4.7.12.1-Windows-x86_64.exe
+    powershell -Command Invoke-WebRequest https://repo.continuum.io/miniconda/Miniconda3-py37_4.8.2-Windows-x86_64.exe -O Miniconda3-py37_4.8.2-Windows-x86_64.exe
 )
 
 echo Executing Miniconda Installer, please install Miniconda in C:%HOMEPATH%\Miniconda3
 
 timeout -1
 
-Miniconda3-4.7.12.1-Windows-x86_64.exe
+Miniconda3-py37_4.8.2-Windows-x86_64.exe
 
 :install_oasys
 
@@ -56,10 +56,10 @@ echo Installing Oasys...
 start /wait /b cmd /c %cd%\aux_bin\install_libraries.bat
 start /wait /b cmd /c %cd%\aux_bin\create_oasys_icon.bat
 
-if exist "%cd%\Miniconda3-4.7.12.1-Windows-x86_64.exe" (
+if exist "%cd%\Miniconda3-py37_4.8.2-Windows-x86_64.exe" (
     set /p "user_decision=Do you want to [d]elete or [k]eep Miniconda installer?> [k]"
     if /I "!user_decision!"=="d" (
-        del /s Miniconda3-4.7.12.1-Windows-x86_64.exe
+        del /s Miniconda3-py37_4.8.2-Windows-x86_64.exe
     ) else (
         echo Installer kept in folder %cd%
     )
