@@ -49,6 +49,12 @@ timeout -1
 
 Miniconda3-py37_4.8.2-Windows-x86_64.exe
 
+if not exist "C:%HOMEPATH%\Miniconda3" (
+    echo Miniconda non installed properly, please install Miniconda in C:%HOMEPATH%\Miniconda3
+    timeout -1
+    exit \b
+ )
+
 :install_oasys
 
 echo Installing Oasys...
