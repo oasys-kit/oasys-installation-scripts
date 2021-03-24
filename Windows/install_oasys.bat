@@ -59,8 +59,8 @@ if not exist "C:%HOMEPATH%\Miniconda3" (
 
 echo Installing Oasys...
 
-start /wait /b cmd /c %cd%\aux_bin\install_libraries.bat
-start /wait /b cmd /c %cd%\aux_bin\create_oasys_icon.bat
+start /wait /b cmd /c "%cd%\aux_bin\install_libraries.bat"
+start /wait /b cmd /c "%cd%\aux_bin\create_oasys_icon.bat"
 
 if exist "%cd%\Miniconda3-py37_4.8.2-Windows-x86_64.exe" (
     set /p "user_decision=Do you want to [d]elete or [k]eep Miniconda installer?> [k]"
