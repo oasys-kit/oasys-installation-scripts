@@ -35,7 +35,7 @@ if [ $? -eq 0 ]; then echo "Miniconda 3 installed. Installing Oasys"; else exit 
 cd $MINICONDA_HOME/bin || exit 1
 ./python -m pip install pip --upgrade
 ./conda install -c conda-forge xraylib=3.3.0
-./python -m pip uninstall numpy
+./python -m pip uninstall -y numpy
 ./python -m pip install numpy==1.18.5 --upgrade
 ./python -m pip install fabio==0.11.0 --upgrade
 ./python -m pip install oasys1
