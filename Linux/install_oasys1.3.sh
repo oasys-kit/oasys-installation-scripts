@@ -13,8 +13,10 @@ then
 else
     if [[ $REPLY =~ ^[Nn]$ ]]
     then
+        echo ""
         echo "Installing OASYS 1.3 (beta)"
     else
+        echo ""
         echo "Answer not recognized"
         exit 1
     fi
