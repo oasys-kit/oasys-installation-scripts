@@ -1,7 +1,7 @@
 @echo off
 
-echo OASYS 1.3 has not been released, yet. This is a beta version, that is unstable.
-echo We suggest to install OASYS 1.2. Do you want to interrupt the current installation?
+echo OASYS 1.3 has not been released, yet. This is an unstable beta version.
+echo We warmly suggest to install OASYS 1.2. Do you want to interrupt the current installation?
 
 :ask_install
 set /p "user_decision=[y]es, [n]o> [y]"
