@@ -12,11 +12,13 @@ if /I "!user_decision!"=="y" (
 	if /I "!user_decision!"=="n" (
         goto batch_exit
     ) else (
-       goto ask_install
+        echo Invalid answer, please try again
+        goto ask_install
     )
 )
 
 :begin_installation
+
 type nul>nul
 setlocal enableDelayedExpansion
 
