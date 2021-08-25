@@ -1,5 +1,22 @@
 @echo off
 
+echo OASYS 1.3 has not been released, yet. This is a beta version, that is unstable.
+echo We suggest to install OASYS 1.2. Do you want to interrupt the current installation?
+
+:ask_install
+set /p "user_decision=[y]es, [n]o> [y]"
+
+if /I "!user_decision!"=="y" (
+    goto begin_installation
+) else (
+	if /I "!user_decision!"=="n" (
+        goto batch_exit
+    ) else (
+       goto ask_install
+    )
+)
+
+:begin_installation
 type nul>nul
 setlocal enableDelayedExpansion
 
