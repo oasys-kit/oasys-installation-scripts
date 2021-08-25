@@ -3,6 +3,25 @@
 type git >/dev/null 2>&1 || ./aux_bin/check_git.sh
 type git >/dev/null 2>&1 || exit 1
 
+echo "OASYS 1.3 has not been released, yet. This is an unstable beta version."
+echo "We warmly suggest to install OASYS 1.2. Do you want to interrupt the current installation?"
+
+read -p "[y]es, [n]o" -n 1 -r
+if [[ $REPLY =~ ^[Yy]$ ]]
+then
+    exit 0
+else
+    if [[ $REPLY =~ ^[Nn]$ ]]
+    then
+        echo "Installing OASYS 1.3 (beta)"
+    else
+        echo "Answer not recognized"
+        exit 1
+    fi
+fi
+
+
+
 MINICONDA_HOME=$HOME/miniconda3
 CUR_PATH=$(pwd)
 AUX_PATH=$CUR_PATH/aux_bin
@@ -51,8 +70,6 @@ if [[ $REPLY =~ ^[Nn]$ ]]
 then
   echo "Installation completed"
 else
-
-
   sudo $AUX_PATH/create_desktop_application.sh $AUX_PATH
   echo "Installation completed"
 fi
