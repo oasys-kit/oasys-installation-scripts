@@ -6,7 +6,7 @@ type git >/dev/null 2>&1 || exit 1
 echo "OASYS 1.3 has not been released, yet. This is an unstable beta version."
 echo "We warmly suggest to install OASYS 1.2. Do you want to interrupt the current installation?"
 
-read -p "[y]es, [n]o" -n 1 -r
+read -p "[y]es, [n]o>" -n 1 -r
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
     exit 0
@@ -29,7 +29,7 @@ CUR_PATH=$(pwd)
 AUX_PATH=$CUR_PATH/aux_bin
 
 [ -d "${MINICONDA_HOME}" ] &&  {
-    read -p "Delete or Rename previous Miniconda3 installation? ([D]/r)" -n 1 -r
+    read -p "Delete or Rename previous Miniconda3 installation? ([D]/r)>" -n 1 -r
     echo    # (optional) move to a new line
     if [[ $REPLY =~ ^[Rr]$ ]]
     then
@@ -66,7 +66,7 @@ if [ $? -eq 0 ]; then echo "Oasys installed. Launching Oasys"; else exit 1; fi
 
 $AUX_PATH/start_oasys.sh
 
-read -p "Create Desktop Application (requires sudo grants)? ([Y]/n)" -n 1 -r
+read -p "Create Desktop Application (requires sudo grants)? ([Y]/n)>" -n 1 -r
 echo    # (optional) move to a new line
 if [[ $REPLY =~ ^[Nn]$ ]]
 then
