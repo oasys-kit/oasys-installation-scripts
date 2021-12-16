@@ -20,15 +20,15 @@ AUX_PATH=$CUR_PATH/aux_bin
 
 if [ $? -eq 0 ]; then echo ""; else exit 1; fi
 
-if test -f "Miniconda3-py37_4.10.3-Linux-x86_64.sh"; then
+if test -f "Miniconda3-4.7.12.1-Linux-x86_64.sh"; then
     echo "Miniconda Installer already downloaded"
 else
   echo "Downloading Miniconda Installer ..."
-  wget https://repo.continuum.io/miniconda/Miniconda3-py37_4.10.3-Linux-x86_64.sh
-  chmod +x Miniconda3-py37_4.10.3-Linux-x86_64.sh
+  wget https://repo.continuum.io/miniconda/Miniconda3-4.7.12.1-Linux-x86_64.sh
+  chmod +x Miniconda3-4.7.12.1-Linux-x86_64.sh
 fi
 
-$CUR_PATH/Miniconda3-py37_4.10.3-Linux-x86_64.sh
+$CUR_PATH/Miniconda3-4.7.12.1-Linux-x86_64.sh
 
 if [ $? -eq 0 ]; then
   echo "Miniconda 3 installed. Activating it..."
