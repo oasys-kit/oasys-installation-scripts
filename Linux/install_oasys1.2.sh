@@ -30,7 +30,22 @@ fi
 
 $CUR_PATH/Miniconda3-4.7.12.1-Linux-x86_64.sh
 
-if [ $? -eq 0 ]; then echo "Miniconda 3 installed. Installing Oasys"; else exit 1; fi
+if [ $? -eq 0 ]; then
+  echo "Miniconda 3 installed. Activating it..."
+  if test -f "$HOME/.bashrc_oasys"; then
+    cp -f $HOME/.bashrc $HOME/.bashrc_oasys_2
+    echo "~/.bashrc copied into ~/.bashrc_oasys_2"
+  else
+    cp -f $HOME/.bashrc $HOME/.bashrc_oasys
+    echo "~/.bashrc copied into ~/.bashrc_oasys"
+  fi
+  $MINICONDA_HOME/bin/conda init bash
+  source $HOME/.bashrc
+  conda activate $MINICONDA_HOME
+  echo "Installing Oasys..."
+else
+  exit 1
+fi
 
 cd $MINICONDA_HOME/bin || exit 1
 ./python -m pip install pip --upgrade
