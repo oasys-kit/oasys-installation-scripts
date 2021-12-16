@@ -63,8 +63,6 @@ if [[ $REPLY =~ ^[Nn]$ ]]
 then
   echo "Installation completed"
 else
-
-
   sudo $AUX_PATH/create_desktop_application.sh $AUX_PATH
   echo "Installation completed"
 fi
