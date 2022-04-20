@@ -1,6 +1,6 @@
 @echo off
 
-set filelink = "C:%HOMEPATH%\Desktop\Oasys 1.2.lnk"
+set filelink="C:%HOMEPATH%\Desktop\Oasys 1.2.lnk"
 
 if not exist "C:%HOMEPATH%\Desktop" (
 	echo Desktop folder is missing, looking for Desktop folder in Onedrive.
