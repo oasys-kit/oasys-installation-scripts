@@ -1,6 +1,7 @@
 @echo off
 
-pip uninstall -y pip setuptools && curl -s https://bootstrap.pypa.io/get-pip.py | python
+pip uninstall -y pip setuptools
+curl -s https://bootstrap.pypa.io/get-pip.py | python
 
 cmd /c conda install git
 cmd /c conda install -c conda-forge xraylib=3.3.0
