@@ -22,15 +22,15 @@ if [ $? -eq 0 ]; then echo ""; else exit 1; fi
 
 
 
-if test -f "Miniconda3-py37_4.10.3-Linux-x86_64.sh"; then
+if test -f "Miniconda3-py38_4.12.0-Linux-x86_64.sh"; then
     echo "Miniconda Installer already downloaded"
 else
   echo "Downloading Miniconda Installer ..."
-  wget https://repo.continuum.io/miniconda/Miniconda3-py37_4.10.3-Linux-x86_64.sh
-  chmod +x Miniconda3-py37_4.10.3-Linux-x86_64.sh
+  wget https://repo.continuum.io/miniconda/Miniconda3-py38_4.12.0-Linux-x86_64.sh
+  chmod +x Miniconda3-py38_4.12.0-Linux-x86_64.sh
 fi
 
-$CUR_PATH/Miniconda3-py37_4.10.3-Linux-x86_64.sh
+$CUR_PATH/Miniconda3-py38_4.12.0-Linux-x86_64.sh
 
 if [ $? -eq 0 ]; then
   echo "Miniconda 3 installed. Activating it..."
@@ -57,7 +57,7 @@ cd - || exit 1
 
 if [ $? -eq 0 ]; then echo "Oasys installed. Launching Oasys"; else exit 1; fi
 
-#sudo sudo apt install qt5-style-plugins || sudo yum install qt5-style-plugins
+sudo sudo apt install qt5-style-plugins || sudo yum install qt5-style-plugins
 
 $AUX_PATH/start_oasys.sh
 
