@@ -3,17 +3,31 @@
 type nul>nul
 setlocal enableDelayedExpansion
 
-echo OASYS 1.3 has not been released, yet. This is an unstable beta version.
-echo We warmly suggest to install OASYS 1.2. Do you want to interrupt the current installation?
+set user_dir=C:%HOMEPATH%
+
+echo The HOMEPATH variable for this user is: %HOMEPATH%
+echo Is it correct?
 
 :ask_install
+
 set /p "user_decision=[y]es, [n]o> [y]"
 
 if /I "!user_decision!"=="y" (
-    goto batch_exit
+    goto begin_installation
 ) else (
-	if /I "!user_decision!"=="n" (
-        goto begin_installation
+    if /I "!user_decision!"=="n" (
+:ask_directory
+        set /p user_dir=Please enter the new HOMEPATH value [it will affect the current script environment only]:
+
+        if exist "C:!user_dir!" (
+            echo Oasys will be installed in C:!user_dir!
+	    set user_dir=C:!user_dir!
+
+            goto begin_installation
+        ) else (
+            echo C:!user_dir! doesn't exist, please try again
+            goto ask_directory
+        )
     ) else (
         echo Invalid answer, please try again
         goto ask_install
@@ -22,28 +36,26 @@ if /I "!user_decision!"=="y" (
 
 :begin_installation
 
-type nul>nul
-setlocal enableDelayedExpansion
 
-if exist "C:%HOMEPATH%\Miniconda3" (
+if exist "%user_dir%\Miniconda3" (
     echo Miniconda distribution found
 
     set /p "user_decision=[r]ename, [d]elete or [k]eep it?> [d]"
     
     if /I "!user_decision!"=="d" (
         echo Deleting existing Miniconda ...
-        rmdir /S /Q "C:%HOMEPATH%\Miniconda3"
+        rmdir /S /Q "%user_dir%\Miniconda3"
     ) else (
 	if /I "!user_decision!"=="r" (
             for /f "tokens=*" %%a in ('powershell get-date -format "{yyyy-MM-dd_HH.mm.ss}"') do set td=%%a
-            rename "C:%HOMEPATH%\Miniconda3" Miniconda3_!td!
+            rename "%user_dir%\Miniconda3" Miniconda3_!td!
             echo Existing Miniconda renamed to Miniconda3_!td!
         ) else (
 	    if /I "!user_decision!"=="k" (
                 goto install_oasys
             ) else (
 		        echo Deleting existing Miniconda ...
-        	    rmdir /S /Q "C:%HOMEPATH%\Miniconda3"
+        	    rmdir /S /Q "%user_dir%\Miniconda3"
             )
         )
     )
@@ -62,11 +74,18 @@ if exist "%cd%\Miniconda3-py38_4.9.2-Windows-x86_64.exe" (
     powershell -Command Invoke-WebRequest https://repo.continuum.io/miniconda/Miniconda3-py38_4.9.2-Windows-x86_64.exe -O Miniconda3-py38_4.9.2-Windows-x86_64.exe
 )
 
-echo Executing Miniconda Installer, please install Miniconda in C:%HOMEPATH%\Miniconda3
+echo Executing Miniconda Installer, please install Miniconda in %user_dir%\Miniconda3
 
 timeout -1
 
 Miniconda3-py38_4.9.2-Windows-x86_64.exe
+
+if exist "%user_dir%\Miniconda3\Scripts\activate.bat" (
+    goto install_oasys
+) else (
+    echo Miniconda has not been installed in the directory: %user_dir%\Miniconda3
+    goto batch_exit
+)
 
 :install_oasys
 
