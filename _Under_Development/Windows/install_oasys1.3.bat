@@ -108,6 +108,8 @@ echo Oasys installation completed!
 echo Double click the icon in the Desktop to run the program"
 echo --------------------------------------------------------------
 
+start /wait /b cmd /c %cd%\aux_bin\fix_libraries1.3.bat
+
 timeout -1 
 
 :batch_exit
