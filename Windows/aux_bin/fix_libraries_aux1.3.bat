@@ -9,7 +9,6 @@ if %fix%==0 (
     pip install oasys-srwpy --upgrade
 ) else (
     pip install oasys-srwpy --upgrade
-    REM echo SRW not installed, yet
 )
 
 python -c "import sys, pkgutil; print(0 if pkgutil.find_loader('PyQt5.QtWebEngineWidgets') else 1)" > fix.txt
@@ -21,7 +20,6 @@ if %fix%==0 (
     pip install PyQtWebEngine==5.14.0
 ) else (
     pip install PyQtWebEngine==5.14.0
-    REM echo PyQtWebEngine not installed, yet
 )
 
 
