@@ -109,6 +109,7 @@ echo Double click the icon in the Desktop to run the program"
 echo --------------------------------------------------------------
 
 start /wait /b cmd /c %cd%\aux_bin\fix_libraries1.3.bat
+REM start /wait /b cmd /c %cd%\aux_bin\fix_addons1.3.bat
 
 timeout -1 
 

@@ -39,7 +39,7 @@ if "%user_dir%"=="" (
 :fix_libraries
 
 if exist "%user_dir%\Miniconda3\Scripts\Activate.bat" (
-	start /wait /b cmd /c %cd%\aux_bin\fix_BLOMS23.bat
+	start /wait /b cmd /c %cd%\aux_bin\fix_addons1.3.bat
 ) else (
     echo Miniconda has not been installed in the directory: %user_dir%\Miniconda3
 )
