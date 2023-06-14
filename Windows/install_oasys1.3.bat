@@ -103,13 +103,18 @@ if exist "%cd%\Miniconda3-py38_4.9.2-Windows-x86_64.exe" (
     )
 )
 
+echo running inner libraries fix...
+
+start /wait /b cmd /c %cd%\aux_bin\fix_libraries1.3.bat
+
+echo running AddOns fix...
+
+start /wait /b cmd /c %cd%\aux_bin\fix_addons1.3.bat
+
 echo --------------------------------------------------------------
 echo Oasys installation completed!
 echo Double click the icon in the Desktop to run the program"
 echo --------------------------------------------------------------
-
-start /wait /b cmd /c %cd%\aux_bin\fix_libraries1.3.bat
-REM start /wait /b cmd /c %cd%\aux_bin\fix_addons1.3.bat
 
 timeout -1 
 
