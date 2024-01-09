@@ -5,11 +5,6 @@ set /p fix=<fix.txt
 del fix.txt
 
 if %fix%==0 (
-    echo Do you want to update ShadowOui Advanced Tools?
-
-    set /p "user_decision=[y]es, [n]o> [y]"
-    if /I %user_decision%==y (
-        powershell -Command Invoke-WebRequest https://files.pythonhosted.org/packages/3a/e7/567f994decf333417f4ae2f0c91a3f6bfa081d7d712e4cc4f68280a9935e/OASYS1-ShadowOui-Advanced-Tools-1.0.127.tar.gz -O OASYS1-ShadowOui-Advanced-Tools-last.tar.gz
-        pip install OASYS1-ShadowOui-Advanced-Tools-last.tar.gz --upgrade
-     )
+   powershell -Command Invoke-WebRequest https://files.pythonhosted.org/packages/3a/e7/567f994decf333417f4ae2f0c91a3f6bfa081d7d712e4cc4f68280a9935e/OASYS1-ShadowOui-Advanced-Tools-1.0.127.tar.gz -O OASYS1-ShadowOui-Advanced-Tools-last.tar.gz
+   pip install OASYS1-ShadowOui-Advanced-Tools-last.tar.gz --upgrade
 )
