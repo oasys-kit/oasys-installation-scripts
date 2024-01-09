@@ -9,7 +9,7 @@ if %fix%==0 (
 
     set /p "user_decision=[y]es, [n]o> [y]"
     if /I %user_decision%==y (
-        powershell -Command Invoke-WebRequest https://files.pythonhosted.org/packages/f7/d2/18b6da994fef31ddc3e1df505b934223e4e6e7cf2fb09b29f12f0a2aabb0/OASYS1-ShadowOui-Advanced-Tools-1.0.125.tar.gz -O OASYS1-ShadowOui-Advanced-Tools-last.tar.gz
+        powershell -Command Invoke-WebRequest https://files.pythonhosted.org/packages/3a/e7/567f994decf333417f4ae2f0c91a3f6bfa081d7d712e4cc4f68280a9935e/OASYS1-ShadowOui-Advanced-Tools-1.0.127.tar.gz -O OASYS1-ShadowOui-Advanced-Tools-last.tar.gz
         pip install OASYS1-ShadowOui-Advanced-Tools-last.tar.gz --upgrade
      )
 )
