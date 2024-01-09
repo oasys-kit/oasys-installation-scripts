@@ -4,8 +4,8 @@ python -c "import sys, pkgutil; print(0 if pkgutil.find_loader('orangecontrib.sh
 set /p fix=<fix.txt
 del fix.txt
 
-if %fix%==1 (
-    echo Do you want to install ShadowOui Advanced Tools?
+if %fix%==0 (
+    echo Do you want to update ShadowOui Advanced Tools?
 
     set /p "user_decision=[y]es, [n]o> [y]"
     if /I %user_decision%==y (
